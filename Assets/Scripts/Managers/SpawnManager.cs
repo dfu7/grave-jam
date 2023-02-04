@@ -10,6 +10,17 @@ public class SpawnManager : MonoBehaviourPunCallbacks
 
     private static GameObject[] SpawnPoints;// = new Transform[2];
 
+    private PlayerController[] playerObjects;
+    private PlayerController MasterObject;
+    private PlayerController PlayerObject;
+
+    [SerializeField] private VictoryManager victoryManager;
+    [SerializeField] private GameObject LoadingScreen;
+
+    private bool ObjectsSet;
+
+    private PhotonView view;
+
     //set the static variables
     private void Awake()
     {
@@ -17,6 +28,65 @@ public class SpawnManager : MonoBehaviourPunCallbacks
 
         SpawnPoints = new GameObject[2];
         SpawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+
+        playerObjects = FindObjectsOfType<PlayerController>();
+
+        LoadingScreen.SetActive(true);
+
+        ObjectsSet = false;
+
+        view = GetComponent<PhotonView>();
+    }
+
+    private void Update()
+    {
+        if (playerObjects != null && playerObjects.Length == 2)
+        {
+            if (view.ViewID % PhotonNetwork.MAX_VIEW_IDS == playerObjects[0].gameObject.GetPhotonView().ViewID % PhotonNetwork.MAX_VIEW_IDS)
+            {
+                //found "my" player as the master
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    MasterObject = playerObjects[0];
+                    PlayerObject = playerObjects[1];
+                }
+                else
+                {
+                    MasterObject = playerObjects[1];
+                    PlayerObject = playerObjects[0];
+                }
+            }
+            else
+            {
+                //found "not my" player as the master
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    MasterObject = playerObjects[1];
+                    PlayerObject = playerObjects[0];
+                }
+                else
+                {
+                    MasterObject = playerObjects[0];
+                    PlayerObject = playerObjects[1];
+                }
+            }
+            BothIn();
+        }
+        else
+        {
+            playerObjects = FindObjectsOfType<PlayerController>();
+            Debug.Log("lookingstill");
+        }
+    }
+
+    public void BothIn()
+    {
+        ObjectsSet = true;
+        //MasterObject.canMove = true;
+        //PlayerObject.canMove = true;
+        victoryManager.MasterObject = MasterObject;
+        victoryManager.PlayerObject = PlayerObject;
+        LoadingScreen.SetActive(false);
     }
 
     //Spawn the player using the online instantiation

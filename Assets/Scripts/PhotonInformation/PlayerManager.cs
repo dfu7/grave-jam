@@ -40,12 +40,12 @@ public class PlayerManager : MonoBehaviourPunCallbacks//, IPunObservable
         if(Master)
         {
             GameObject InstantiatedPlayer = SpawnManager.Instance.OnlineSpawn(Master, PlayerPrefab);
-            Debug.LogError("Spawned in CreateController at " + InstantiatedPlayer.transform.position);
+            //Debug.LogError("Spawned in CreateController at " + InstantiatedPlayer.transform.position);
         }
         else
         {
             GameObject InstantiatedPlayer = SpawnManager.Instance.OnlineSpawn(Master, PlayerPrefab);
-            Debug.LogError("Spawned in CreateController at " + InstantiatedPlayer.transform.position);
+            //Debug.LogError("Spawned in CreateController at " + InstantiatedPlayer.transform.position);
         }
     }
 }
