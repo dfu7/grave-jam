@@ -13,8 +13,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private float speed = 8;
     [SerializeField] private float rotationSpeed = 720;
     public bool canMove = true;
+    private bool casting = false;
 
-    private float TombstoneHeldTime = 0;
+    [SerializeField] private float inRangeDistance = 1;
+    private float tombstoneHeldTime = 0;
     bool pulling = false;
 
     public int Score;
@@ -35,13 +37,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
+        /*
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
         // everything below only happens when raycast hits and is close enough
-        Debug.DrawRay(transform.position, Vector3.forward, Color.green);
-
-        if (Physics.Raycast(transform.position, Vector3.forward, 10))
+        if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("boom");
-        }
+            if (hit.collider.gameObject.tag == "Tombstone")
+            {
+                //Debug.Log("boom");
+            }
+        }*/
 
 
         //pressed
@@ -62,12 +68,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+
         if (pulling)
         {
-            TombstoneHeldTime += Time.deltaTime;
+            tombstoneHeldTime += Time.deltaTime;
         }
         
-        if ( TombstoneHeldTime >= 3 /*animation length*/ )
+        if ( tombstoneHeldTime >= 3 /*animation length*/ )
         {
             canMove = true;
         }
@@ -82,6 +89,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(movement, Vector3.up), rotationSpeed * Time.deltaTime);
 
                 transform.Translate(movement * speed * Time.deltaTime, Space.World);
+            }
+            else
+            {
+                rb.angularVelocity = Vector3.zero;
             }
         }
         else
