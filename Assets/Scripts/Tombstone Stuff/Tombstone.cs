@@ -19,14 +19,7 @@ public abstract class Tombstone : MonoBehaviour
 
     protected void RemoveTombstone(bool ShouldDestroy)
     {
-        if(ShouldDestroy)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
+        view.RPC("RPC_RemoveTombstone", RpcTarget.All, ShouldDestroy);
     }
 
     public void Select()
@@ -38,6 +31,19 @@ public abstract class Tombstone : MonoBehaviour
     {
         view.RPC("RPC_Deselect", RpcTarget.All);
     }
+
+    [PunRPC]
+    public void RPC_RemoveTombstone(bool ShouldDestroy)
+    {
+        if (ShouldDestroy)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }    
 
     [PunRPC]
     public void RPC_Select()
