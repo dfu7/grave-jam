@@ -15,6 +15,7 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     private PlayerController PlayerObject;
 
     [SerializeField] private VictoryManager victoryManager;
+    [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private GameObject LoadingScreen;
 
     private bool ObjectsSet;
@@ -86,6 +87,8 @@ public class SpawnManager : MonoBehaviourPunCallbacks
         PlayerObject.canMove = true;
         victoryManager.MasterObject = MasterObject;
         victoryManager.PlayerObject = PlayerObject;
+        scoreManager.MasterObject = MasterObject;
+        scoreManager.PlayerObject = PlayerObject;
         LoadingScreen.SetActive(false);
     }
 
