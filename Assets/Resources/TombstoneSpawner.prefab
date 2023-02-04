@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfGoodTombstones: 19
   numOfBadTombstones: 6
+  goodTombstoneName: GoodTombstone
+  badTombstoneName: BadTombstone
   goodTombstone: {fileID: 2330567186164737336, guid: d5fe506e4de71b6489089bf6150ae6e1, type: 3}
   badTombstone: {fileID: -7361778219945539484, guid: 22d2b07e9b155d44586846872a58e5ea, type: 3}
   graveyard: {fileID: 0}

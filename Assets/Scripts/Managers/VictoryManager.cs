@@ -40,8 +40,6 @@ public class VictoryManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-
-        /*
         if(!EndGameCalled && MasterObject != null && PlayerObject != null)
         {
             if (MasterObject.Score >= NumberToWin)
@@ -53,14 +51,12 @@ public class VictoryManager : MonoBehaviourPunCallbacks
                 EndGame(false);
             }
             EndGameCalled = true;
-        }*/
-
+        }
 
         //THIS IS FOR DEBUG
-        if (MasterObject != null && PlayerObject != null)
-            EndGame(false);
-        
-        
+        /*if (MasterObject != null && PlayerObject != null)
+            EndGame(true);
+        */
     }
 
     public void EndGame(bool MasterWon)

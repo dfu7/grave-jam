@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 7759435838740196570}
   - component: {fileID: 2671439354169494772}
   - component: {fileID: -8472636869815029700}
+  - component: {fileID: 2576979538616691761}
   m_Layer: 0
   m_Name: playa1
   m_TagString: Player
@@ -427,6 +428,7 @@ MonoBehaviour:
   speed: 8
   rotationSpeed: 720
   canMove: 1
+  inRangeDistance: 1
   Score: 0
 --- !u!114 &5541808347199504956
 MonoBehaviour:
@@ -563,6 +565,18 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 1
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &2576979538616691761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2566355894869523560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724f225aa21acfe459a5da51c56db67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3417205915932164364
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,14 +18,14 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private GameObject LoadingScreen;
 
-    private bool ObjectsSet;
+    public bool ObjectsSet;
 
     private PhotonView view;
 
     //set the static variables
     private void Awake()
     {
-        Instance = new SpawnManager();
+        Instance = new SpawnManager();      //may need to edit the way this is done if we need to set the variables for this version
 
         SpawnPoints = new GameObject[2];
         SpawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (playerObjects != null && playerObjects.Length == 2)
+        if (!ObjectsSet && playerObjects != null && playerObjects.Length == 2)
         {
             if (view.ViewID % PhotonNetwork.MAX_VIEW_IDS == playerObjects[0].gameObject.GetPhotonView().ViewID % PhotonNetwork.MAX_VIEW_IDS)
             {
@@ -73,7 +73,7 @@ public class SpawnManager : MonoBehaviourPunCallbacks
             }
             BothIn();
         }
-        else
+        else if(!ObjectsSet)
         {
             playerObjects = FindObjectsOfType<PlayerController>();
             Debug.Log("lookingstill");
@@ -83,6 +83,7 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     public void BothIn()
     {
         ObjectsSet = true;
+        Instance.ObjectsSet = true;
         MasterObject.canMove = true;
         PlayerObject.canMove = true;
         victoryManager.MasterObject = MasterObject;
