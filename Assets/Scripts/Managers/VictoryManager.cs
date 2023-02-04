@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -12,6 +13,7 @@ public class VictoryManager : MonoBehaviourPunCallbacks
     private TombstoneSpawner tombstoneSpawner;
     private int NumberToWin;
 
+    [SerializeField] private string MainMenuName;
     [SerializeField] private GameObject VictoryScreen;
     [SerializeField] private GameObject LossScreen;
 
@@ -87,5 +89,10 @@ public class VictoryManager : MonoBehaviourPunCallbacks
                 VictoryScreen.SetActive(true);
             }
         }
+    }
+
+    public void OnClickExit()
+    {
+        SceneManager.LoadScene(MainMenuName);
     }
 }
