@@ -8,7 +8,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
     //this is the script that handles the buttons in the main menu
 
     [SerializeField] private string ConnectToServer;
-
     private bool OneFrame = false;
 
     private void Update()
@@ -38,4 +37,5 @@ public class MainMenu : MonoBehaviourPunCallbacks
     {
         Application.Quit();
     }
+    
 }
