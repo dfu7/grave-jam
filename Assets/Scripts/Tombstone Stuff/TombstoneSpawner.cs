@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 
 public class TombstoneSpawner : MonoBehaviour
 {
-    [SerializeField] private int numOfGoodTombstones = 19;
-    [SerializeField] private int numOfBadTombstones = 6;
+    public int numOfGoodTombstones = 19;
+    public int numOfBadTombstones = 6;
     [SerializeField] private Tombstone goodTombstone;
     [SerializeField] private Tombstone badTombstone;
     [SerializeField] private GameObject graveyard;

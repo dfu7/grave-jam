@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private float speed = 8;
     [SerializeField] private float rotationSpeed = 720;
 
+    public int Score;
+
     private Rigidbody rb;
     PhotonView view;
 
@@ -42,5 +44,16 @@ public class PlayerController : MonoBehaviourPunCallbacks
             rb.angularVelocity = Vector3.zero;
         }
 
+    }
+
+    public void GainCoin()
+    {
+        view.RPC("RPC_GainCoin", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPC_GainCoin()
+    {
+        Score++;
     }
 }
