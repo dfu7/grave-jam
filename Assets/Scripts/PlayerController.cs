@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        view = GetComponent<PhotonView>();  
+        view = GetComponent<PhotonView>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -36,20 +36,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public void OnPickUp(InputAction.CallbackContext context)
     {
         // everything below only happens when raycast hits and is close enough
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-        Debug.DrawRay(transform.position, fwd, Color.green);
+        Debug.DrawRay(transform.position, Vector3.forward, Color.green);
 
-        if (Physics.Raycast(transform.position, fwd, 10))
+        if (Physics.Raycast(transform.position, Vector3.forward, 10))
         {
             Debug.Log("boom");
         }
 
 
-            //pressed
-            if (context.started)
+        //pressed
+        if (context.started)
         {
             pulling = true;
-            canMove = false;
+            //canMove = false;
             // start animation
         }
 

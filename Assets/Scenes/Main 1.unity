@@ -266,6 +266,38 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5723614112728462812, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136268378040274309, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136268378040274309, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136268378040274309, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5723614112728462812, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
+    - target: {fileID: 6136268378040274309, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136268378040274309, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136268378040274309, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136268378040274309, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841b7fb18724f1c4cb70ad38ad76d0cd, type: 3}
 --- !u!1 &621926399
@@ -562,6 +594,14 @@ PrefabInstance:
     - target: {fileID: 2942635864022132434, guid: 2393eed77047b3a48a203efef76e62c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5541808347199504956, guid: 2393eed77047b3a48a203efef76e62c1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5361027434083639384, guid: 2393eed77047b3a48a203efef76e62c1, type: 3}
+    - target: {fileID: 5541808347199504956, guid: 2393eed77047b3a48a203efef76e62c1, type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPickUp
       objectReference: {fileID: 0}
     - target: {fileID: 7759435838740196570, guid: 2393eed77047b3a48a203efef76e62c1, type: 3}
       propertyPath: sceneViewId
