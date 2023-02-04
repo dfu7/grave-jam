@@ -12,10 +12,14 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         movement = context.ReadValue<Vector3>();
-        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
