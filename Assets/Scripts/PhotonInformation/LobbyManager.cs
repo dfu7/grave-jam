@@ -113,8 +113,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             //this creates the new RoomItem and gives it the password according to the room's properties
             RoomItem NewRoom = Instantiate(RoomItemPrefab, ContentObject);
             NewRoom.SetRoomName(room.Name);
-            ExitGames.Client.Photon.Hashtable RoomHash = room.CustomProperties;
-            NewRoom.Password = (string)RoomHash[PasswordKey];
+
+            //this is for passwords
+            /*ExitGames.Client.Photon.Hashtable RoomHash = room.CustomProperties;
+            NewRoom.Password = (string)RoomHash[PasswordKey];*/
 
             //room is finally added to the list
             RoomItemsList.Add(NewRoom);
