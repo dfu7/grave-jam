@@ -1206,11 +1206,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2386144869536442494, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
       propertyPath: m_text
-      value: Exit
+      value: Exit Room
       objectReference: {fileID: 0}
     - target: {fileID: 3052430094500923438, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
       propertyPath: m_Name
       value: LossScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052430094500923438, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3052430094500923439, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
       propertyPath: m_Pivot.x
@@ -1303,6 +1307,30 @@ PrefabInstance:
     - target: {fileID: 5326000388477232018, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662403219764249612, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.5188679
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662403219764249612, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.5188679
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662403219764249612, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.5188679
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662403219764249612, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662403219764249612, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662403219764249612, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.754717
       objectReference: {fileID: 0}
     - target: {fileID: 5662403219764249612, guid: 8c63faf5801b2ad489b690aa9bf93ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1465,9 +1493,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: VictoryScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 5087754592735453681, guid: 304c1d8f09f4e374690f40281f101b07, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5187482005546387841, guid: 304c1d8f09f4e374690f40281f101b07, type: 3}
       propertyPath: m_text
-      value: Exit
+      value: Exit Room
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 304c1d8f09f4e374690f40281f101b07, type: 3}
