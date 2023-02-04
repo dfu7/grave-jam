@@ -46,15 +46,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
         // e pressed
         if (context.started)
         {
-            checking = true; // raycast check (automatically sets checking to false) raycasts are stupid
-
-            if (inRange)
+            if (!pulling)
             {
-                pulling = true;
-                canMove = false;
-                // set tombstone bool to being used';;; prob has to do with hitInfo down below vv
-                // test effect
-                // start pulling animation
+                checking = true; // raycast check (automatically sets checking to false) raycasts are stupid
             }
         }
 
@@ -98,7 +92,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 // check if tombstone is selected through hitInfo
                 Debug.Log("hit");
                 Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
-                inRange = true;
+
+                pulling = true;
+                canMove = false;
+                // set tombstone bool to being used';;; prob has to do with hitInfo down below vv
+                // test effect
+                // start pulling animation
             }
             else
             {
