@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96489d0959c6c234d89be980712c692e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player1Set: playa1
+  Player2Set: playa2

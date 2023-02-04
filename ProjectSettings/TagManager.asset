@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - Interactable
+  - ButtonNoise
+  - Panel
+  - SpawnPoint
+  - Spawner
   layers:
   - Default
   - TransparentFX

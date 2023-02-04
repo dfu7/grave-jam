@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     private void Update()
     {
         //calls all of the photon leave room an disconnections
-        if (!OneFrame)
+        if (!OneFrame && PhotonNetwork.IsConnected)
         {
             PhotonNetwork.LeaveRoom();
             OneFrame = true;

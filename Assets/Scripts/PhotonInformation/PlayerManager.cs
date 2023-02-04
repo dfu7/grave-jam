@@ -7,12 +7,15 @@ using Photon.Pun;
 //Written by Ed
 public class PlayerManager : MonoBehaviourPunCallbacks//, IPunObservable
 {
-    [SerializeField] private GameObject Prefab;
-    [SerializeField] private string PrefabName;
+    //[SerializeField] private GameObject Prefab;
+    //[SerializeField] private string PrefabName;
     //[SerializeField] private string MasterTag;
     //[SerializeField] private string PlayerTag;
 
     private PhotonView view;
+
+    [SerializeField] private string MasterPrefab;
+    [SerializeField] private string PlayerPrefab;
 
     //private GameStateManager.GAMESTATE LastState = GameStateManager.GAMESTATE.PLAYING;    
 
@@ -34,7 +37,15 @@ public class PlayerManager : MonoBehaviourPunCallbacks//, IPunObservable
         //TODO: SPAWN SHIT
         
         bool Master = PhotonNetwork.IsMasterClient;
-        GameObject InstantiatedPlayer = SpawnManager.Instance.OnlineSpawn(Master, PrefabName);
-        Debug.Log("Spawned in CreateController");
+        if(Master)
+        {
+            GameObject InstantiatedPlayer = SpawnManager.Instance.OnlineSpawn(Master, PlayerPrefab);
+            Debug.LogError("Spawned in CreateController at " + InstantiatedPlayer.transform.position);
+        }
+        else
+        {
+            GameObject InstantiatedPlayer = SpawnManager.Instance.OnlineSpawn(Master, PlayerPrefab);
+            Debug.LogError("Spawned in CreateController at " + InstantiatedPlayer.transform.position);
+        }
     }
 }

@@ -22,16 +22,14 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     //Spawn the player using the online instantiation
     public GameObject OnlineSpawn(bool Master, string PrefabName)
     {
-        print(SpawnPoints[0]);
-
         //coded only for two
         if (Master)
         {
-            return PhotonNetwork.Instantiate(PrefabName, SpawnPoints[0].transform.position, SpawnPoints[0].transform.rotation);
+            return PhotonNetwork.Instantiate(PrefabName, SpawnPoints[1].transform.position, SpawnPoints[1].transform.rotation);
         }
         else
         {
-            return PhotonNetwork.Instantiate(PrefabName, SpawnPoints[1].transform.position, SpawnPoints[1].transform.rotation);
+            return PhotonNetwork.Instantiate(PrefabName, SpawnPoints[0].transform.position, SpawnPoints[0].transform.rotation);
         }
     }
 
