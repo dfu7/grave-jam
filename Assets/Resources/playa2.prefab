@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   rotationSpeed: 720
+  canMove: 1
   Score: 0
 --- !u!114 &6136268378040274309
 MonoBehaviour:
@@ -221,6 +222,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0373a12e-888c-4912-ac2c-b4488be8f25b
     m_ActionName: Player/WASD[/Keyboard/a,/Keyboard/d,/Keyboard/w,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5723614112728462812}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPickUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4e5d6ae7-1db8-4f71-89e1-3ae75a82acc1
+    m_ActionName: Player/PickUp[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
