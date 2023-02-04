@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using Photon.Realtime;
 using Photon.Pun;
 using UnityEngine.InputSystem.Interactions;
+using static UnityEngine.UI.Image;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
@@ -13,11 +14,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private float speed = 8;
     [SerializeField] private float rotationSpeed = 720;
     public bool canMove = true;
-    private bool casting = false;
 
-    [SerializeField] private float inRangeDistance = 1;
+    private float inRangeDistance;
     private float tombstoneHeldTime = 0;
     bool pulling = false;
+    bool checking = false;
+    bool inRange = false;
+
+    Vector3 origin;
 
     public int Score;
 
@@ -28,6 +32,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         rb = GetComponent<Rigidbody>();
         view = GetComponent<PhotonView>();
+
+        inRangeDistance = GetComponent<CapsuleCollider>().bounds.size.z / 2 + 0.2f;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -37,38 +43,39 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public void OnPickUp(InputAction.CallbackContext context)
     {
-        /*
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
-        // everything below only happens when raycast hits and is close enough
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.collider.gameObject.tag == "Tombstone")
-            {
-                //Debug.Log("boom");
-            }
-        }*/
-
-
-        //pressed
+        // e pressed
         if (context.started)
         {
-            pulling = true;
-            //canMove = false;
-            // start animation
+            checking = true; // raycast check (automatically sets checking to false) raycasts are stupid
+
+            if (inRange)
+            {
+                pulling = true;
+                canMove = false;
+                // set tombstone bool to being used';;; prob has to do with hitInfo down below vv
+                // test effect
+                // start pulling animation
+            }
         }
 
         //released
-        if (context.performed)
+        if (context.performed || !pulling)
         {
-            pulling = false;
-            // pause animation
+            // only !pulling if pulling finished
+            if (!pulling)
+            {
+                // start effect
+            }
+            // paused pulling
+            else
+            {
+                // pause pulling animation
+            }
         }
     }
 
     private void Update()
     {
-
         if (pulling)
         {
             tombstoneHeldTime += Time.deltaTime;
@@ -76,13 +83,34 @@ public class PlayerController : MonoBehaviourPunCallbacks
         
         if ( tombstoneHeldTime >= 3 /*animation length*/ )
         {
-            canMove = true;
+            pulling = false;
         }
     }
 
     private void FixedUpdate()
     {
-        if(view.IsMine)
+        // checks if tombstone is in range and then sets inRange respectively
+        if (checking)
+        {
+            Vector3 origin = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            if (Physics.Raycast(origin, transform.TransformDirection(Vector3.forward), out RaycastHit hitInfo, inRangeDistance))
+            {
+                // check if tombstone is selected through hitInfo
+                Debug.Log("hit");
+                Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
+                inRange = true;
+            }
+            else
+            {
+                Debug.Log("not hit" + transform.position);
+                Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.green);
+                inRange = false;
+            }
+            checking = false;
+        }
+        
+
+        if (view.IsMine)
         {
             if (movement != Vector3.zero && canMove)
             {
