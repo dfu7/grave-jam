@@ -82,8 +82,8 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     public void BothIn()
     {
         ObjectsSet = true;
-        //MasterObject.canMove = true;
-        //PlayerObject.canMove = true;
+        MasterObject.canMove = true;
+        PlayerObject.canMove = true;
         victoryManager.MasterObject = MasterObject;
         victoryManager.PlayerObject = PlayerObject;
         LoadingScreen.SetActive(false);
