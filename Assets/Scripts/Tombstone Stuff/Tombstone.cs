@@ -14,4 +14,16 @@ public abstract class Tombstone : MonoBehaviour
     }
 
     public abstract void Effect(PlayerController Object);
+
+    protected void RemoveTombstone(bool ShouldDestroy)
+    {
+        if(ShouldDestroy)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
