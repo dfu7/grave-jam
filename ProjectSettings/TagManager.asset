@@ -10,6 +10,7 @@ TagManager:
   - Panel
   - SpawnPoint
   - Spawner
+  - Tombstone
   layers:
   - Default
   - TransparentFX

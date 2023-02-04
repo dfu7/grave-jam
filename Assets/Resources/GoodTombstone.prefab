@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2330567186164737336}
   m_Layer: 0
   m_Name: GoodTombstone
-  m_TagString: Untagged
+  m_TagString: Tombstone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
