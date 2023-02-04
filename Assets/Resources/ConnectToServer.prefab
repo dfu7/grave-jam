@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UsernameInput: {fileID: 0}
   ButtonText: {fileID: 0}
+  MainMenuName: 
+  LobbyName: 

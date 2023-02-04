@@ -9,6 +9,8 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     [SerializeField] private TMPro.TMP_InputField UsernameInput;
     [SerializeField] private TMPro.TMP_Text ButtonText;
+    [SerializeField] private string MainMenuName;
+    [SerializeField] private string LobbyName;
 
     private bool Connecting = false;
 
@@ -35,16 +37,14 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
         Debug.Log(PhotonNetwork.CloudRegion);
         Debug.Log(PhotonNetwork.GetPing());
 
-        //TODO: Send to lobby
-        //PhotonNetwork.LoadLevel();
+        PhotonNetwork.LoadLevel(LobbyName);
     }
 
     public void OnClickBack()
     {
         if (!Connecting)
         {
-            //TODO: Send to main menu
-            //PhotonNetwork.LoadLevel();
+            PhotonNetwork.LoadLevel(MainMenuName);
         }
     }
 

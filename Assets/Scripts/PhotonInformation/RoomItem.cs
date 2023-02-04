@@ -34,5 +34,7 @@ public class RoomItem : MonoBehaviour
 
         //and will be replaced with just this
         Manager.JoinRoom(RoomName.text);
+
+        Debug.Log("OnClickItem");
     }
 }

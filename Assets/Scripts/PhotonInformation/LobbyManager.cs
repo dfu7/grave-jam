@@ -34,6 +34,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform PlayerItemParent;
 
     [SerializeField] private GameObject StartButton;
+    [SerializeField] private string ConnectToServer;
     [SerializeField] private string GameScene;
 
     string[] regions = { "asia", "au", "cae", "eu", "in", "jp", "ru", "rue", "za", "sa", "kr", "tr", "us", "usw" };
@@ -44,10 +45,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         LobbyPanel.SetActive(true);
         RoomPanel.SetActive(false);
-        PasswordPanel.SetActive(false);
+        //PasswordPanel.SetActive(false);
         PhotonNetwork.JoinLobby();
 
-        OriginalPasswordPromptText = PasswordPromptText.text;
+        //OriginalPasswordPromptText = PasswordPromptText.text;
     }
 
     //this is for creating a new room
@@ -55,12 +56,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //and restricting the password name length to be at most 12 characters
     public void OnClickCreate()
     {
-        if (RoomInputField.text.Length >= 1 && RoomInputField.text.Length <= 12 && PasswordInputField.text.Length <= 12)
+        if (RoomInputField.text.Length >= 1 && RoomInputField.text.Length <= 12/* && PasswordInputField.text.Length <= 12*/)
         {
             //the options set the max players and the password based on the text in the password input field
             RoomOptions roomOptions = new RoomOptions();
             roomOptions.MaxPlayers = 2;
-            roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "Password", PasswordInputField.text } };
+            //roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { "Password", PasswordInputField.text } };
 
             //believe this allows the password to be accessible from the lobby
             string[] Property = new string[] { "Password" };
@@ -182,8 +183,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.Disconnect();
 
-        //TODO: ConnectToServerScene
-        //PhotonNetwork.LoadLevel();
+        PhotonNetwork.LoadLevel(ConnectToServer);
     }
 
     //resets the panels to the lobby when no longer in the room
