@@ -10,9 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 8;
     [SerializeField] private float rotationSpeed = 720;
 
+    private Rigidbody rb;
+
     public void OnMove(InputAction.CallbackContext context)
     {
         movement = context.ReadValue<Vector3>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -22,6 +25,10 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(movement, Vector3.up), rotationSpeed * Time.deltaTime);
 
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
+        }
+        else
+        {
+            rb.angularVelocity = Vector3.zero;
         }
 
     }
