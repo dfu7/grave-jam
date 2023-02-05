@@ -203,21 +203,29 @@ public class PlayerController : MonoBehaviourPunCallbacks
         waited = true;
     }
 
-    public void GainCoin()
+    public void GainCoin(GameObject coin)
     {
         view.RPC("RPC_GainCoin", RpcTarget.All);
+        WaitForCoin(coin);
     }
 
-    public void GetStunned()
+    public IEnumerator WaitForCoin(GameObject coin)
     {
-        StartCoroutine(Stun());
+        yield return new WaitForSeconds(1.5f);
+        PhotonNetwork.Destroy(coin);
     }
 
-    public IEnumerator Stun()
+    public void GetStunned(GameObject ghost)
+    {
+        StartCoroutine(Stun(ghost));
+    }
+
+    public IEnumerator Stun(GameObject ghost)
     {
         canMove = false;
         yield return new WaitForSeconds(SecondsOfStun);
         animator.SetBool("stunover", true);
+        PhotonNetwork.Destroy(ghost);
     }
 
     [PunRPC]

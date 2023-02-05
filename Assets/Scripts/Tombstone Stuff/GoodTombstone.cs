@@ -14,7 +14,7 @@ public class GoodTombstone : Tombstone
         Animator canimator = c.GetComponentInChildren<Animator>();
         canimator.Play("happy_coin");
 
-        PlayerObject.GainCoin();
+        PlayerObject.GainCoin(c);
         RemoveTombstone(false);
     }
 }
