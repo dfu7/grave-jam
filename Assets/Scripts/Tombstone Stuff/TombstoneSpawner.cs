@@ -15,6 +15,7 @@ public class TombstoneSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private Tombstone goodTombstone;
     [SerializeField] private Tombstone badTombstone;
     [SerializeField] private GameObject graveyard;
+    [SerializeField] private List<GameObject> trees = new List<GameObject>();
 
     private float gWidthR;
     private float gLengthR;
@@ -32,12 +33,12 @@ public class TombstoneSpawner : MonoBehaviourPunCallbacks
         {
             for (int i = 0; i < numOfGoodTombstones; i++)
             {
-                Instantiate(goodTombstone, randomPos(), Quaternion.identity);
+                SpawnTombstone(goodTombstone);
             }
 
             for (int i = 0; i < numOfBadTombstones; i++)
             {
-                Instantiate(badTombstone, randomPos(), Quaternion.identity);
+                SpawnTombstone(badTombstone);
             }
         }
         else
@@ -47,15 +48,38 @@ public class TombstoneSpawner : MonoBehaviourPunCallbacks
                 
                 for (int i = 0; i < numOfGoodTombstones; i++)
                 {
-                    PhotonNetwork.Instantiate(goodTombstoneName, randomPos(), Quaternion.identity);
+                    PhotonSpawnTombstone(goodTombstoneName);
                 }
 
                 for (int i = 0; i < numOfBadTombstones; i++)
                 {
-                    PhotonNetwork.Instantiate(badTombstoneName, randomPos(), Quaternion.identity);
+                    PhotonSpawnTombstone(badTombstoneName);
                 }
             }  
         } 
+    }
+
+    public void SpawnTombstone(Tombstone tombstone)
+    {
+        Tombstone ts = Instantiate(tombstone, randomPos(), Quaternion.identity);
+
+        if (ts.GetComponent<TombstoneCollision>().collided)
+        {
+            Destroy(ts.gameObject);
+            SpawnTombstone(tombstone);
+        }
+    }
+
+    public void PhotonSpawnTombstone(string tombstoneName)
+    {
+        GameObject ts = PhotonNetwork.Instantiate(tombstoneName, randomPos(), Quaternion.identity);
+
+
+        if (ts.GetComponent<TombstoneCollision>().collided)
+        {
+            PhotonNetwork.Destroy(ts.gameObject);
+            PhotonSpawnTombstone(tombstoneName);
+        }
     }
 
     private Vector3 randomPos()
@@ -64,5 +88,4 @@ public class TombstoneSpawner : MonoBehaviourPunCallbacks
         int z = (int)Random.Range(-gLengthR + 1, gLengthR);
         return new Vector3(x, baseSpawnY, z);
     }
-
 }
