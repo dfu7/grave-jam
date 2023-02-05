@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     //Audio manager. Also handles randomizing the background music at start. 
     public Sound[] sounds;
     public static AudioManager instance;
+
     private void Awake()
     {
         if(instance == null)
@@ -24,7 +25,7 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            s.source.volume = 1;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.outputAudioMixerGroup = s.mixerGroup; 
@@ -56,4 +57,5 @@ public class AudioManager : MonoBehaviour
             s.source.Stop();
         }
     }
+
 }
