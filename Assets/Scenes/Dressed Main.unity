@@ -2910,7 +2910,7 @@ Transform:
   - {fileID: 1928889814}
   - {fileID: 1949067818}
   - {fileID: 188560376}
-  m_Father: {fileID: 621926403}
+  m_Father: {fileID: 621926404}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &255184144
@@ -3712,7 +3712,7 @@ Transform:
   - {fileID: 1813619935}
   - {fileID: 991809595}
   - {fileID: 1705570866}
-  m_Father: {fileID: 621926403}
+  m_Father: {fileID: 621926404}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &323499628
@@ -11177,7 +11177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &552336278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11708,6 +11708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewAudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9202782862493777102, guid: 1e4f6da8b5cb08344b43d9503e47c53c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e4f6da8b5cb08344b43d9503e47c53c, type: 3}
 --- !u!114 &600742469 stripped
@@ -11877,10 +11881,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 621926403}
+  - component: {fileID: 621926404}
   - component: {fileID: 621926402}
   - component: {fileID: 621926401}
   - component: {fileID: 621926400}
+  - component: {fileID: 621926403}
   m_Layer: 0
   m_Name: Graveyard
   m_TagString: Untagged
@@ -11921,7 +11926,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 866b09db7f2ea9a49bf5038003ee8f51, type: 2}
+  - {fileID: 2100000, guid: 5f677903be141d34c99d0f3394562da8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11951,8 +11956,16 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621926399}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &621926403
-Transform:
+--- !u!222 &621926403
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621926399}
+  m_CullTransparentMesh: 1
+--- !u!224 &621926404
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11972,8 +11985,13 @@ Transform:
   - {fileID: 2010051908}
   - {fileID: 1144407583}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &626934661
 GameObject:
   m_ObjectHideFlags: 0
@@ -12207,7 +12225,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4914740706299748882, guid: 02dc2b603566eba42949a989bf8940c6, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4914740706299748882, guid: 02dc2b603566eba42949a989bf8940c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18869,7 +18887,7 @@ Transform:
   - {fileID: 1423939128}
   - {fileID: 803359022}
   - {fileID: 23509460}
-  m_Father: {fileID: 621926403}
+  m_Father: {fileID: 621926404}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &793370230
@@ -31515,7 +31533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1060364019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32589,7 +32607,7 @@ Transform:
   - {fileID: 520402904}
   - {fileID: 1798258845}
   - {fileID: 2137218404}
-  m_Father: {fileID: 621926403}
+  m_Father: {fileID: 621926404}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1144407579
@@ -32693,7 +32711,7 @@ Transform:
   - {fileID: 905446563}
   - {fileID: 1850744140}
   - {fileID: 498252474}
-  m_Father: {fileID: 621926403}
+  m_Father: {fileID: 621926404}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1146036470
@@ -42894,7 +42912,7 @@ Transform:
   - {fileID: 774748836}
   - {fileID: 407716435}
   - {fileID: 372013809}
-  m_Father: {fileID: 621926403}
+  m_Father: {fileID: 621926404}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1573557975
@@ -43005,7 +43023,7 @@ Transform:
   - {fileID: 2135964293}
   - {fileID: 1992000798}
   - {fileID: 1713191221}
-  m_Father: {fileID: 621926403}
+  m_Father: {fileID: 621926404}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1583014901
@@ -45465,7 +45483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1750472829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52501,7 +52519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2798329929675967321, guid: 5296cd3f3d75e1646a6a8f7b986e48df, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2798329929675967321, guid: 5296cd3f3d75e1646a6a8f7b986e48df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58783,7 +58801,7 @@ Transform:
   - {fileID: 1146036471}
   - {fileID: 1634040930}
   - {fileID: 1536995633}
-  m_Father: {fileID: 621926403}
+  m_Father: {fileID: 621926404}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2016912656
@@ -60909,6 +60927,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 552336281}
     m_Modifications:
+    - target: {fileID: 4054708543112463272, guid: dd49632562bb73144a8d39fd70e5403f, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054708543112463272, guid: dd49632562bb73144a8d39fd70e5403f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4054708543112463274, guid: dd49632562bb73144a8d39fd70e5403f, type: 3}
       propertyPath: m_Name
       value: LoadingScreen
