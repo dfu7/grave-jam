@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class SpawnManager : MonoBehaviourPunCallbacks
 {
@@ -19,6 +20,8 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject LoadingScreen;
 
     public bool ObjectsSet;
+
+    [SerializeField] private TMPro.TMP_Text countdownNum;
 
     private PhotonView view;
 
@@ -92,13 +95,11 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     {
         ObjectsSet = true;
         Instance.ObjectsSet = true;
-        MasterObject.canMove = true;
-        PlayerObject.canMove = true;
+        StartCoroutine(StartSequence());
         victoryManager.MasterObject = MasterObject;
         victoryManager.PlayerObject = PlayerObject;
         scoreManager.MasterObject = MasterObject;
         scoreManager.PlayerObject = PlayerObject;
-        LoadingScreen.SetActive(false);
     }
 
     //Spawn the player using the online instantiation
@@ -115,4 +116,21 @@ public class SpawnManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public IEnumerator StartSequence()
+    {
+        LoadingScreen.SetActive(false);
+        yield return new WaitForSeconds(1);
+        countdownNum.enabled = true;
+        yield return new WaitForSeconds(1);
+        countdownNum.text = "2";
+        yield return new WaitForSeconds(1);
+        countdownNum.text = "1";
+        yield return new WaitForSeconds(1);
+        countdownNum.text = "Dig!";
+        yield return new WaitForSeconds(0.5f);
+        countdownNum.enabled = false;
+        // play awesome go sound
+        MasterObject.canMove = true;
+        PlayerObject.canMove = true;
+    }
 }
