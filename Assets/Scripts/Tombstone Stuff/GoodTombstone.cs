@@ -8,8 +8,8 @@ public class GoodTombstone : Tombstone
 {
     public override void Effect(PlayerController PlayerObject)
     {
+        Debug.Log("i love everything1! happy  :^)");
         PlayerObject.GainCoin();
         RemoveTombstone(false);
-        Debug.Log("i love everything1! happy  :^)");
     }
 }

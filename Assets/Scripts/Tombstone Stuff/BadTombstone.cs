@@ -12,6 +12,7 @@ public class BadTombstone : Tombstone
     {
         Debug.Log("bad really super mean >:((( ");
         StartCoroutine(StunPlayer(PlayerObject));
+        RemoveTombstone(false);
     }
 
     private IEnumerator StunPlayer(PlayerController PlayerObject)
