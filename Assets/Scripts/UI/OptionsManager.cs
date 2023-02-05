@@ -7,7 +7,8 @@ public class OptionsManager : MonoBehaviour
     //deals with opening/closing options menu and volume stuff
     //Idk i dont wanna make 2 separate scripts for those
     [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private GameObject mainPanel; 
+    [SerializeField] private GameObject mainPanel;
+    [SerializeField] private GameObject optionsPanel; 
 
     public void SetMasterVolume(float vol)
     {
@@ -24,15 +25,15 @@ public class OptionsManager : MonoBehaviour
         audioMixer.SetFloat("sfxVol", vol); 
     }
 
-    public void OpenSubMenu(GameObject submenu)
+    public void OpenOptions()
     {
         mainPanel.SetActive(false);
-        submenu.SetActive(true);
+        optionsPanel.SetActive(true);
     }
     
-    public void CloseSubMenu(GameObject submenu)
+    public void CloseOptions()
     {
         mainPanel.SetActive(true);
-        submenu.SetActive(false);
+        optionsPanel.SetActive(false);
     }
 }
