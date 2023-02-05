@@ -15,12 +15,14 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     private PlayerController MasterObject;
     private PlayerController PlayerObject;
 
+    [SerializeField] private NewAudioManager newAudioManager;
+
     [SerializeField] private VictoryManager victoryManager;
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private GameObject LoadingScreen;
 
-    public bool ObjectsSet;
-
+    [HideInInspector] public bool ObjectsSet;
+    
     [SerializeField] private GameObject Countdown;
     [SerializeField] private TMPro.TMP_Text countdownNum;
 
@@ -120,18 +122,19 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     public IEnumerator StartSequence()
     {
         LoadingScreen.SetActive(false);
+        newAudioManager.PlayStartCountdown();
         Debug.Log("loading screen deactivated");
-        yield return new WaitForSeconds(1);
+        //yield return new WaitForSeconds(1);
         Countdown.SetActive(true);
-        Debug.Log("3");
+        //Debug.Log("3");
         yield return new WaitForSeconds(1);
-        countdownNum.text = "2";
+        countdownNum.text = "Ready";
         Debug.Log("2");
         yield return new WaitForSeconds(1);
-        countdownNum.text = "1";
+        countdownNum.text = "Set";
         Debug.Log("1");
         yield return new WaitForSeconds(1);
-        countdownNum.text = "Dig!";
+        countdownNum.text = "Go!";
         Debug.Log("dig");
         yield return new WaitForSeconds(0.5f);
         countdownNum.enabled = false;

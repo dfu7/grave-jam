@@ -267,7 +267,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public IEnumerator StartPressed()
     {
-        yield return new WaitForSeconds(newAudioManager.TimeToWait * 1.5f);
+        yield return new WaitForSeconds(newAudioManager.TimeToWait * 1.75f);
         PhotonNetwork.LoadLevel(GameScene);
     }
 

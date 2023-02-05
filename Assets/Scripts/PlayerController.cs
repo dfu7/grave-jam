@@ -7,7 +7,6 @@ using Photon.Realtime;
 using Photon.Pun;
 using UnityEngine.InputSystem.Interactions;
 using static UnityEngine.UI.Image;
-using System.Security.Cryptography.X509Certificates;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
