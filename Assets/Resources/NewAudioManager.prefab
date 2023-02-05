@@ -243,6 +243,6 @@ MonoBehaviour:
   ButtonCancel: {fileID: 8300000, guid: 68fde2d78f9ab9849a2eeddfbb5ef2ba, type: 3}
   ScrollSound: {fileID: 8300000, guid: 2d21c069b067bf344b9234c834943443, type: 3}
   StartGame: {fileID: 8300000, guid: 4aea3e2b45c40284e978b907ecf60807, type: 3}
-  StartCountdown: {fileID: 8300000, guid: 220e8593a7a8d2443be438c048c2447c, type: 3}
+  StartCountdown: {fileID: 8300000, guid: ffd29b28e104cbc4cb54b67df5d2de00, type: 3}
   TimeToWait: 0.55
   Wait: 0

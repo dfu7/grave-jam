@@ -9,7 +9,12 @@ public class BadTombstone : Tombstone
     public override void Effect(PlayerController PlayerObject)
     {
         Debug.Log("bad really super mean >:((( ");
-        PlayerObject.GetStunned();
+
+        GameObject g = PhotonNetwork.Instantiate("Ghost", transform.position, Quaternion.identity);
+        Animator ganimator = g.GetComponentInChildren<Animator>();
+        ganimator.Play("attack_ghost");
+
+        PlayerObject.GetStunned(g);
         RemoveTombstone(false);
     }
 }
