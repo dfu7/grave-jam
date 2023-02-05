@@ -5,12 +5,19 @@ using UnityEngine;
 public class NewAudioManager : MonoBehaviour
 {
     public AudioSource audioSourceSFX;
+    public AudioSource longAudioSourceSFX;
 
     [SerializeField] private AudioClip ButtonConfirm;
     [SerializeField] private AudioClip ButtonCancel;
     [SerializeField] private AudioClip ScrollSound;
     [SerializeField] private AudioClip StartGame;
     [SerializeField] private AudioClip StartCountdown;
+    [SerializeField] private AudioClip EndWhistle;
+    [SerializeField] private AudioClip StartMoving;
+    [SerializeField] private AudioClip GraveRising;
+    [SerializeField] private AudioClip Coin;
+    [SerializeField] private AudioClip Ghost;
+    [SerializeField] private AudioClip Stun;
 
     public float TimeToWait = 0.55f;
 
@@ -54,7 +61,42 @@ public class NewAudioManager : MonoBehaviour
 
     public void PlayStartCountdown()
     {
-        audioSourceSFX.clip = StartCountdown;
+        longAudioSourceSFX.clip = StartCountdown;
+        longAudioSourceSFX.Play();
+    }
+    public void PlayEndWhistle()
+    {
+        longAudioSourceSFX.clip = EndWhistle;
+        longAudioSourceSFX.Play();
+    }
+
+    public void PlayStartMoving()
+    {
+        audioSourceSFX.clip = StartMoving;
         audioSourceSFX.Play();
+    }
+
+    public void PlayGraveRising()
+    {
+        audioSourceSFX.clip = GraveRising;
+        audioSourceSFX.Play();
+    }
+
+    public void PlayCoin()
+    {
+        audioSourceSFX.clip = Coin;
+        audioSourceSFX.Play();
+    }
+
+    public void PlayGhost()
+    {
+        audioSourceSFX.clip = Ghost;
+        audioSourceSFX.Play();
+    }
+
+    public void PlayStun()
+    {
+        longAudioSourceSFX.clip = Stun;
+        longAudioSourceSFX.Play();
     }
 }
