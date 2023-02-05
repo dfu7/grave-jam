@@ -18,15 +18,16 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private float inRangeDistance;
     private float tombstoneHeldTime = 0;
+    private int pulls = 0;
     bool pulling = false;
     bool checking = false;
-    bool inRange = false;
-
-    Vector3 origin;
 
     public int Score;
 
     private Rigidbody rb;
+
+    private Animator animator;
+    Tombstone tombstone;
 
     PhotonView view;
 
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         view = GetComponent<PhotonView>();
 
         inRangeDistance = GetComponent<CapsuleCollider>().bounds.size.z / 2 + 0.2f;
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -52,22 +55,47 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 checking = true; // raycast check (automatically sets checking to false) raycasts are stupid
             }
-        }
-
-        //released
-        if (context.performed || !pulling)
-        {
-            // only !pulling if pulling finished
-            if (!pulling)
+            else if (pulls == 3)
             {
-                // start effect
+                animator.speed = 1;
+                tombstone.Effect(this);
+                pulls = 0;
             }
-            // paused pulling
             else
             {
-                // pause pulling animation
+                ContinueAnimation();
+                // check that its not playing
             }
         }
+    }
+
+    bool isPlaying(Animator anim, string stateName)
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
+                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            return true;
+        else
+            return false;
+    }
+
+
+    public IEnumerator ContinueAnimation()
+    {
+        Debug.Log("animation continued");
+
+        if (pulls == 0)
+            animator.SetBool("pulling", true);
+            yield return new WaitForSeconds((1f / 331) * 31);
+        if (pulls == 1)
+            animator.speed = 1;
+            yield return new WaitForSeconds((1f / 331) * 66);
+        if (pulls == 2)
+            animator.speed = 1;
+            yield return new WaitForSeconds((1f / 331) * 197);
+
+        Debug.Log("animation stopped");
+        animator.speed = 0;
+        pulls++;
     }
 
     private void Update()
@@ -98,23 +126,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     Debug.Log("hit");
                     Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
 
-                    pulling = true;
-                    //canMove = false;
-
-                    Tombstone tombstone = hitInfo.collider.gameObject.GetComponent<Tombstone>();
+                    tombstone = hitInfo.collider.gameObject.GetComponent<Tombstone>();
                     if(tombstone != null && !tombstone.Selected)
                     {
-                        hitInfo.collider.gameObject.GetComponent<Tombstone>().Select();
-                        tombstone.Effect(this);
+                        hitInfo.collider.gameObject.GetComponent<Tombstone>().Select(); // set tombstone bool to being used
+                        pulling = true;
+                        canMove = false;
                     }
-                    // set tombstone bool to being used';;; prob has to do with hitInfo down below vv
-                    // start pulling animation
-                }
-                else
-                {
-                    Debug.Log("not hit" + transform.position);
-                    Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.green);
-                    inRange = false;
                 }
                 checking = false;
             }
@@ -122,17 +140,20 @@ public class PlayerController : MonoBehaviourPunCallbacks
             //general movement
             if (movement != Vector3.zero && canMove)
             {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(movement, Vector3.up), rotationSpeed * Time.deltaTime);
+                animator.SetBool("moving", true); // movement starts
 
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(movement, Vector3.up), rotationSpeed * Time.deltaTime);
                 transform.Translate(movement * speed * Time.deltaTime, Space.World);
             }
             else
             {
+                animator.SetBool("moving", false); //movement stops
                 rb.angularVelocity = Vector3.zero;
             }
         }
         else
         {
+            animator.SetBool("moving", false); // movement stops
             rb.angularVelocity = Vector3.zero;
         }
 
