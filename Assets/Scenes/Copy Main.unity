@@ -489,8 +489,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -513,14 +513,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34354413}
-  m_LocalRotation: {x: 0.3361749, y: 0, z: 0, w: 0.94179964}
-  m_LocalPosition: {x: 0, y: 21.24, z: -36}
+  m_LocalRotation: {x: 0.3130107, y: 0.0031943317, z: -0.0015816828, w: 0.9497429}
+  m_LocalPosition: {x: -0.51, y: 20.33, z: -23.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 39.288, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 36.482, y: 0.362, z: -0.072}
 --- !u!1001 &40092270
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27239,12 +27239,17 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7004339778943231492, guid: 71376bf01fd5d30438f11ee06f64f166, type: 3}
   m_PrefabInstance: {fileID: 728170105}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 728170107}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &728170107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7376709530323770974, guid: 71376bf01fd5d30438f11ee06f64f166, type: 3}
+  m_PrefabInstance: {fileID: 728170105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &732060367
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40727,6 +40732,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5743231475208875491, guid: ca71ccf7f0175cb40afeef031e8a85d4, type: 3}
+      propertyPath: Countdown
+      value: 
+      objectReference: {fileID: 728170107}
     - target: {fileID: 5743231475208875491, guid: ca71ccf7f0175cb40afeef031e8a85d4, type: 3}
       propertyPath: Player1Set
       value: playa1
@@ -56345,7 +56354,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5159507455661669599, guid: 5296cd3f3d75e1646a6a8f7b986e48df, type: 3}
       propertyPath: GameSceneName
-      value: Main
+      value: Copy Main
       objectReference: {fileID: 0}
     - target: {fileID: 1518733656321450506, guid: 5296cd3f3d75e1646a6a8f7b986e48df, type: 3}
       propertyPath: m_Name
@@ -56582,7 +56591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8544122405555253664, guid: c93187b7dd295774ab886c86721520ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.43
+      value: -0.394
       objectReference: {fileID: 0}
     - target: {fileID: 8544122405555253664, guid: c93187b7dd295774ab886c86721520ea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -56590,7 +56599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8544122405555253664, guid: c93187b7dd295774ab886c86721520ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.387
+      value: -0.148
       objectReference: {fileID: 0}
     - target: {fileID: 8544122405555253664, guid: c93187b7dd295774ab886c86721520ea, type: 3}
       propertyPath: m_LocalRotation.w

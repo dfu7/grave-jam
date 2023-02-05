@@ -21,6 +21,7 @@ public class SpawnManager : MonoBehaviourPunCallbacks
 
     public bool ObjectsSet;
 
+    [SerializeField] private GameObject Countdown;
     [SerializeField] private TMPro.TMP_Text countdownNum;
 
     private PhotonView view;
@@ -119,18 +120,24 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     public IEnumerator StartSequence()
     {
         LoadingScreen.SetActive(false);
+        Debug.Log("loading screen deactivated");
         yield return new WaitForSeconds(1);
-        countdownNum.enabled = true;
+        Countdown.SetActive(true);
+        Debug.Log("3");
         yield return new WaitForSeconds(1);
         countdownNum.text = "2";
+        Debug.Log("2");
         yield return new WaitForSeconds(1);
         countdownNum.text = "1";
+        Debug.Log("1");
         yield return new WaitForSeconds(1);
         countdownNum.text = "Dig!";
+        Debug.Log("dig");
         yield return new WaitForSeconds(0.5f);
         countdownNum.enabled = false;
         // play awesome go sound
         MasterObject.canMove = true;
         PlayerObject.canMove = true;
+        Debug.Log("sequence finished, players can move");
     }
 }
