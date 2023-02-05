@@ -256,6 +256,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 8727013242855973440}
   - {fileID: -4027176958123947072}
+  - {fileID: 3584145578573492909}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -1185,19 +1186,19 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 2
+    SynchronizeType: 1
     Name: moving
   - Type: 4
-    SynchronizeType: 2
+    SynchronizeType: 1
     Name: pulling
   - Type: 4
-    SynchronizeType: 2
+    SynchronizeType: 1
     Name: good
   - Type: 4
-    SynchronizeType: 2
+    SynchronizeType: 1
     Name: stunover
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 1
     LayerIndex: 0
 --- !u!1 &6523548101795852733
 GameObject:
