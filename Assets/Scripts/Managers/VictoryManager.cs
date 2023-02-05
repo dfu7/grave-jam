@@ -7,8 +7,10 @@ using Photon.Realtime;
 
 public class VictoryManager : MonoBehaviourPunCallbacks
 {
-    public PlayerController MasterObject;
-    public PlayerController PlayerObject;
+    [HideInInspector] public PlayerController MasterObject;
+    [HideInInspector] public PlayerController PlayerObject;
+
+    [SerializeField] private NewAudioManager newAudioManager;
 
     private TombstoneSpawner tombstoneSpawner;
     private int NumberToWin;
@@ -92,6 +94,14 @@ public class VictoryManager : MonoBehaviourPunCallbacks
 
     public void OnClickExit()
     {
+        newAudioManager.PlayButtonConfirm();
+        StartCoroutine(ExitClicked());
+    }
+
+    public IEnumerator ExitClicked()
+    {
+        yield return new WaitForSeconds(newAudioManager.TimeToWait);
+        AudioManager.instance.PlayMenuMusic();
         SceneManager.LoadScene(MainMenuName);
     }
 }
