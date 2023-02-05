@@ -17,7 +17,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        AudioManager.instance.PlayLevelMusic();
+        //AudioManager.instance.PlayLevelMusic();
     }
 
     //Subscribe to a scene

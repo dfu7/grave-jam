@@ -37,8 +37,6 @@ public class VictoryManager : MonoBehaviourPunCallbacks
         //accounts for int division truncation
         if (tombstoneSpawner.numOfGoodTombstones % 2 == 1)
             NumberToWin++;
-
-        Debug.LogError(NumberToWin);
     }
 
     // Update is called once per frame

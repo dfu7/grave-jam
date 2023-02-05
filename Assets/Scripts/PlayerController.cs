@@ -19,14 +19,16 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private float inRangeDistance;
     private float tombstoneHeldTime = 0;
     private int pulls = 0;
-    bool pulling = false;
-    bool checking = false;
+    private bool pulling = false;
+    private bool checking = false;
+    private bool response = false;
 
     public int Score;
 
     private Rigidbody rb;
 
     private Animator animator;
+    private string tombstoneChoiceState;
     Tombstone tombstone;
 
     PhotonView view;
@@ -55,7 +57,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 checking = true; // raycast check (automatically sets checking to false) raycasts are stupid
             }
-            else if (pulls == 3)
+            /*else if (pulls == 3)
             {
                 animator.speed = 1;
                 tombstone.Effect(this);
@@ -65,7 +67,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 ContinueAnimation();
                 // check that its not playing
-            }
+            }*/
         }
     }
 
@@ -129,9 +131,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     tombstone = hitInfo.collider.gameObject.GetComponent<Tombstone>();
                     if(tombstone != null && !tombstone.Selected)
                     {
-                        hitInfo.collider.gameObject.GetComponent<Tombstone>().Select(); // set tombstone bool to being used
+                        tombstone.Select(); // set tombstone bool to being used
                         pulling = true;
                         canMove = false;
+                        Debug.Log("canMove:" + canMove);
+                        animator.SetBool("pulling", pulling);
                     }
                 }
                 checking = false;
@@ -150,9 +154,38 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 animator.SetBool("moving", false); //movement stops
                 rb.angularVelocity = Vector3.zero;
             }
+
+            //do next animation if pulling (also changed pull_playa1/playa2 to just pull_playa)
+            if(!tombstone && pulling)
+            {
+                if(!isPlaying(animator, "pull_playa"))
+                {
+                    string state = (tombstone is GoodTombstone) ? "good" : "bad";
+                    tombstoneChoiceState = (tombstone is GoodTombstone) ? "happy_playa" : "stunned_playa";
+                    animator.SetBool(state, true);
+                    animator.SetBool("pulling", false);
+                    pulling = false;
+                    response = true;
+                    tombstone = null;
+                }
+            }
+
+            // checking when to end player stuckedness after happy animation is over
+            if(response && tombstoneChoiceState.Equals("happy_playa"))
+            {
+                if (!isPlaying(animator, "happy_playa"))
+                {
+                    tombstoneChoiceState = "";
+                    animator.SetBool("good", false);
+                    canMove = true;
+                    response = false;
+                }
+            }
+
         }
         else
         {
+            //ED: This seems needless
             animator.SetBool("moving", false); // movement stops
             rb.angularVelocity = Vector3.zero;
         }
