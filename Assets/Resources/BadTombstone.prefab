@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5123362099775377498}
   - component: {fileID: -7361778219945539484}
   - component: {fileID: -1237403377277814255}
-  - component: {fileID: 3728143646053780657}
   m_Layer: 0
   m_Name: BadTombstone
   m_TagString: Tombstone
@@ -136,26 +135,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!95 &3728143646053780657
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5123362099775377497}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 174841cbd6db5dd4eaa8edba837667fd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2128105652484293706
 PrefabInstance:
   m_ObjectHideFlags: 0
