@@ -15,7 +15,6 @@ public class TombstoneSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private Tombstone goodTombstone;
     [SerializeField] private Tombstone badTombstone;
     [SerializeField] private GameObject graveyard;
-    [SerializeField] private List<GameObject> trees = new List<GameObject>();
 
     private float gWidthR;
     private float gLengthR;

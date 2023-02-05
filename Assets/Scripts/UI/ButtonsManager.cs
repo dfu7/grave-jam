@@ -14,13 +14,13 @@ public class ButtonsManager : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void EnlargeButton()
     {
-        Debug.Log("Hover ON");
+        //Debug.Log("Hover ON");
         this.transform.DOScale(scaleMult, fadeTime).SetEase(Ease.OutBounce); 
     }
 
     public void ReduceButton()
     {
-        Debug.Log("Hover OFF");
+        //Debug.Log("Hover OFF");
         this.transform.DOScale(1f, fadeTime).SetEase(Ease.OutBounce); 
     }
 
