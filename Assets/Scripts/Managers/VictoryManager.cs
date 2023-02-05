@@ -68,6 +68,9 @@ public class VictoryManager : MonoBehaviourPunCallbacks
     public void EndGame(bool MasterWon)
     {
         Debug.LogError("In EndGame");
+
+        newAudioManager.PlayEndWhistle();
+
         if(MasterWon)
         {
             //Master won and I am Master
