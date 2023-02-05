@@ -48,7 +48,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -141,7 +141,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8217488143672945685, guid: 325061a664a365b48a144c34bfc44259, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -238,7 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c96fbb2758935b428ed7a64b37b3bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSourceBGM: {fileID: 2555418976454356137}
   audioSourceSFX: {fileID: 4240136740767031438}
   ButtonConfirm: {fileID: 8300000, guid: 7aee9452ffd874c40b2a997d4dc412f7, type: 3}
+  ButtonCancel: {fileID: 8300000, guid: 68fde2d78f9ab9849a2eeddfbb5ef2ba, type: 3}
+  ScrollSound: {fileID: 8300000, guid: 2d21c069b067bf344b9234c834943443, type: 3}
+  StartGame: {fileID: 0}
   Wait: 0

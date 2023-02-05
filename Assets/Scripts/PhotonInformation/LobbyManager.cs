@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private NewAudioManager newAudioManager;
     [SerializeField] private TMPro.TMP_InputField RoomInputField;
     [SerializeField] private TMPro.TMP_InputField PasswordInputField;
     [SerializeField] private GameObject LobbyPanel;
@@ -181,8 +182,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //this send the player back to the ConnectToServer scene and disconnects them from the lobby
     public void OnClickBack()
     {
-        PhotonNetwork.Disconnect();
+        newAudioManager.PlayButtonCancel();
+        StartCoroutine(BackClicked());
+    }
 
+    public IEnumerator BackClicked()
+    {
+        yield return new WaitForSeconds(newAudioManager.TimeToWait);
+        PhotonNetwork.Disconnect();
         PhotonNetwork.LoadLevel(ConnectToServer);
     }
 
@@ -254,6 +261,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void OnClickStartButton()
     {
+        newAudioManager.PlayButtonStartGame();
+        StartCoroutine(StartPressed());
+    }
+
+    public IEnumerator StartPressed()
+    {
+        yield return new WaitForSeconds(newAudioManager.TimeToWait * 1.5f);
         PhotonNetwork.LoadLevel(GameScene);
     }
 

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class NewAudioManager : MonoBehaviour
 {
-    public AudioSource audioSourceBGM;
     public AudioSource audioSourceSFX;
 
-    [SerializeField] private AudioClip MainMenuMusic;
-    [SerializeField] private AudioClip LevelMusic;
     [SerializeField] private AudioClip ButtonConfirm;
     [SerializeField] private AudioClip ButtonCancel;
+    [SerializeField] private AudioClip ScrollSound;
+    [SerializeField] private AudioClip StartGame;
+
+    public float TimeToWait = 0.55f;
 
     [HideInInspector] public bool Wait;
 
@@ -26,26 +27,27 @@ public class NewAudioManager : MonoBehaviour
         
     }
 
-    public void PlayMenuTheme()
-    {
-        audioSourceBGM.clip = MainMenuMusic;
-        audioSourceBGM.Play();
-    }
-
-    public void PlayLevelMusic()
-    {
-        audioSourceBGM.clip = LevelMusic;
-        audioSourceBGM.Play();
-    }
-
     public void PlayButtonConfirm()
     {
         audioSourceSFX.clip = ButtonConfirm;
         audioSourceSFX.Play();
     }
+
     public void PlayButtonCancel()
     {
         audioSourceSFX.clip = ButtonCancel;
+        audioSourceSFX.Play();
+    }
+
+    public void PlayScrollSound()
+    {
+        audioSourceSFX.clip = ScrollSound;
+        audioSourceSFX.Play();
+    }
+
+    public void PlayButtonStartGame()
+    {
+        audioSourceSFX.clip = StartGame;
         audioSourceSFX.Play();
     }
 }

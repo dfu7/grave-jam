@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public IEnumerator LoadPhotonLevel()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(newAudioManager.TimeToWait);
         PhotonNetwork.LoadLevel(ConnectToServer);
     }
 

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private NewAudioManager newAudioManager;
     [SerializeField] private TMPro.TMP_InputField UsernameInput;
     [SerializeField] private TMPro.TMP_Text ButtonText;
     [SerializeField] private string MainMenuName;
@@ -44,8 +45,15 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         if (!Connecting)
         {
-            PhotonNetwork.LoadLevel(MainMenuName);
+            newAudioManager.PlayButtonCancel();
+            StartCoroutine(BackClicked());
         }
+    }
+
+    public IEnumerator BackClicked()
+    {
+        yield return new WaitForSeconds(newAudioManager.TimeToWait);
+        PhotonNetwork.LoadLevel(MainMenuName);
     }
 
     public void ChangeRegion(int i)
