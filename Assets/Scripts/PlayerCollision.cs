@@ -25,9 +25,6 @@ public class PlayerCollision : MonoBehaviour
             }
             CollisionsIgnored = true;
         }
-        else
-        {
-            Debug.Log(CollisionsIgnored + " and " + SpawnManager.Instance.ObjectsSet);
-        }
+
     }
 }

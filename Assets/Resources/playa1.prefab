@@ -428,8 +428,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   rotationSpeed: 720
+  SecondsOfStun: 2
   canMove: 1
-  inRangeDistance: 1
   Score: 0
 --- !u!114 &5541808347199504956
 MonoBehaviour:

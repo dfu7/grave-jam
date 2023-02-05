@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private Vector3 movement;
     [SerializeField] private float speed = 8;
     [SerializeField] private float rotationSpeed = 720;
+    [SerializeField] private float SecondsOfStun;
     public bool canMove = true;
 
     private float inRangeDistance;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public int Score;
 
     private Rigidbody rb;
+
     PhotonView view;
 
     private void Awake()
@@ -83,34 +85,41 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private void FixedUpdate()
     {
-        // checks if tombstone is in range and then sets inRange respectively
-        if (checking)
-        {
-            Vector3 origin = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            if (Physics.Raycast(origin, transform.TransformDirection(Vector3.forward), out RaycastHit hitInfo, inRangeDistance))
-            {
-                // check if tombstone is selected through hitInfo
-                Debug.Log("hit");
-                Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
-
-                pulling = true;
-                canMove = false;
-                // set tombstone bool to being used';;; prob has to do with hitInfo down below vv
-                // test effect
-                // start pulling animation
-            }
-            else
-            {
-                Debug.Log("not hit" + transform.position);
-                Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.green);
-                inRange = false;
-            }
-            checking = false;
-        }
-        
 
         if (view.IsMine)
         {
+            // checks if tombstone is in range and then sets inRange respectively
+            if (checking)
+            {
+                Vector3 origin = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                if (Physics.Raycast(origin, transform.TransformDirection(Vector3.forward), out RaycastHit hitInfo, inRangeDistance))
+                {
+                    // check if tombstone is selected through hitInfo
+                    Debug.Log("hit");
+                    Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.red);
+
+                    pulling = true;
+                    //canMove = false;
+
+                    Tombstone tombstone = hitInfo.collider.gameObject.GetComponent<Tombstone>();
+                    if(!tombstone.Selected)
+                    {
+                        hitInfo.collider.gameObject.GetComponent<Tombstone>().Select();
+                        tombstone.Effect(this);
+                    }
+                    // set tombstone bool to being used';;; prob has to do with hitInfo down below vv
+                    // start pulling animation
+                }
+                else
+                {
+                    Debug.Log("not hit" + transform.position);
+                    Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward) * hitInfo.distance, Color.green);
+                    inRange = false;
+                }
+                checking = false;
+            }
+
+            //general movement
             if (movement != Vector3.zero && canMove)
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(movement, Vector3.up), rotationSpeed * Time.deltaTime);
@@ -132,6 +141,18 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public void GainCoin()
     {
         view.RPC("RPC_GainCoin", RpcTarget.All);
+    }
+
+    public void GetStunned()
+    {
+        StartCoroutine(Stun());
+    }
+
+    public IEnumerator Stun()
+    {
+        canMove = false;
+        yield return new WaitForSeconds(SecondsOfStun);
+        canMove = true;
     }
 
     [PunRPC]

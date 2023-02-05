@@ -35,6 +35,8 @@ public class VictoryManager : MonoBehaviourPunCallbacks
         //accounts for int division truncation
         if (tombstoneSpawner.numOfGoodTombstones % 2 == 1)
             NumberToWin++;
+
+        Debug.LogError(NumberToWin);
     }
 
     // Update is called once per frame
@@ -50,7 +52,6 @@ public class VictoryManager : MonoBehaviourPunCallbacks
             {
                 EndGame(false);
             }
-            EndGameCalled = true;
         }
 
         //THIS IS FOR DEBUG
@@ -61,6 +62,7 @@ public class VictoryManager : MonoBehaviourPunCallbacks
 
     public void EndGame(bool MasterWon)
     {
+        Debug.LogError("In EndGame");
         if(MasterWon)
         {
             //Master won and I am Master
@@ -85,6 +87,7 @@ public class VictoryManager : MonoBehaviourPunCallbacks
                 VictoryScreen.SetActive(true);
             }
         }
+        EndGameCalled = true;
     }
 
     public void OnClickExit()
