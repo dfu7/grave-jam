@@ -8,8 +8,8 @@ public class OptionsManager : MonoBehaviour
     //Idk i dont wanna make 2 separate scripts for those
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private GameObject mainPanel;
-    [SerializeField] private GameObject optionsPanel; 
-
+    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject howToPanel; 
     public void SetMasterVolume(float vol)
     {
         audioMixer.SetFloat("masterVol", vol); 
@@ -35,5 +35,16 @@ public class OptionsManager : MonoBehaviour
     {
         mainPanel.SetActive(true);
         optionsPanel.SetActive(false);
+    }
+    public void OpenHowTo()
+    {
+        mainPanel.SetActive(false);
+        howToPanel.SetActive(true);
+    }
+    
+    public void CloseHowTo()
+    {
+        mainPanel.SetActive(true);
+        howToPanel.SetActive(false);
     }
 }
