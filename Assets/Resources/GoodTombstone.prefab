@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5123362099775377498}
   - component: {fileID: 2330567186164737336}
   - component: {fileID: 2922616393852160003}
-  - component: {fileID: 3524797843762182880}
   m_Layer: 0
   m_Name: GoodTombstone
   m_TagString: Tombstone
@@ -136,19 +135,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &3524797843762182880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5123362099775377497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 545777e030ec0c64abe33d9873dc4f8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collided: 0
 --- !u!1001 &9072099850379793003
 PrefabInstance:
   m_ObjectHideFlags: 0
