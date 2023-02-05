@@ -7,7 +7,6 @@ using Photon.Realtime;
 using Photon.Pun;
 using UnityEngine.InputSystem.Interactions;
 using static UnityEngine.UI.Image;
-using System.Security.Cryptography.X509Certificates;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
@@ -31,6 +30,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private Rigidbody rb;
 
     private Animator animator;
+    private Animator TSanimator;
     private string tombstoneChoiceState;
     Tombstone tombstone;
 
@@ -133,12 +133,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     tombstone = hitInfo.collider.gameObject.GetComponent<Tombstone>();
                     if(tombstone != null && !tombstone.Selected)
                     {
+                        TSanimator = tombstone.GetComponentInChildren<Animator>();
                         Debug.Log("TOMBSTONE GOOD");
                         tombstone.Select(); // set tombstone bool to being used
                         pulling = true;
                         canMove = false;
                         Debug.Log("canMove:" + canMove);
                         animator.SetBool("pulling", pulling);
+                        TSanimator.SetBool("pulling", pulling);
                         animator.SetBool("good", (tombstone is GoodTombstone) ? true : false);
                         StartCoroutine(WaitASec());
                     }

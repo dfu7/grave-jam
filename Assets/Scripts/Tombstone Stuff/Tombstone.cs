@@ -9,13 +9,17 @@ public abstract class Tombstone : MonoBehaviour
     public bool Selected;
 
     protected PhotonView view;
+    Animator TSanimator;
 
     protected void Start()
     {
         view = GetComponent<PhotonView>();
+        TSanimator = GetComponentInParent<Animator>();
     }
 
     public abstract void Effect(PlayerController Object);
+
+
 
     protected void RemoveTombstone(bool ShouldDestroy)
     {

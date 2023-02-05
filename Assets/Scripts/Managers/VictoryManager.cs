@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using UnityEngine.UI; 
 using Photon.Realtime;
 
 public class VictoryManager : MonoBehaviourPunCallbacks
@@ -19,6 +20,10 @@ public class VictoryManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject VictoryScreen;
     [SerializeField] private GameObject LossScreen;
 
+    [SerializeField] private Sprite BlueWin;
+    [SerializeField] private Sprite GreenWin;
+    [SerializeField] private Sprite BlueLoss;
+    [SerializeField] private Sprite GreenLoss; 
     private bool EndGameCalled = false;
 
     private PhotonView view;
@@ -68,11 +73,15 @@ public class VictoryManager : MonoBehaviourPunCallbacks
             //Master won and I am Master
             if(PhotonNetwork.IsMasterClient)
             {
+                //Green win
                 VictoryScreen.SetActive(true);
+                VictoryScreen.GetComponent<Image>().sprite = GreenWin; 
             }
             else
             {
+                //Blue loss
                 LossScreen.SetActive(true);
+                LossScreen.GetComponent<Image>().sprite = BlueLoss;
             }
         }
         else
@@ -80,11 +89,15 @@ public class VictoryManager : MonoBehaviourPunCallbacks
             //Master won and I am not Master
             if(PhotonNetwork.IsMasterClient)
             {
+                //Blue win
                 LossScreen.SetActive(true);
+                LossScreen.GetComponent<Image>().sprite = BlueWin; 
             }
             else
             {
+                //Green loss
                 VictoryScreen.SetActive(true);
+                VictoryScreen.GetComponent<Image>().sprite = GreenLoss; 
             }
         }
         EndGameCalled = true;

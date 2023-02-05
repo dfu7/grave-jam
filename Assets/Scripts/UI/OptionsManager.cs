@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Audio;
 public class OptionsManager : MonoBehaviour
@@ -27,7 +28,7 @@ public class OptionsManager : MonoBehaviour
     {
         audioMixer.SetFloat("sfxVol", vol); 
     }
-
+    
     public void OpenOptions()
     {
         mainPanel.SetActive(false);
