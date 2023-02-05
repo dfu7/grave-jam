@@ -590,6 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 325061a664a365b48a144c34bfc44259, type: 2}
   mainPanel: {fileID: 2089917449}
+  optionsPanel: {fileID: 0}
 --- !u!4 &172325137
 Transform:
   m_ObjectHideFlags: 0
@@ -2740,7 +2741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1058548157
 RectTransform:
   m_ObjectHideFlags: 0
