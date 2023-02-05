@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     //canMove = false;
 
                     Tombstone tombstone = hitInfo.collider.gameObject.GetComponent<Tombstone>();
-                    if(!tombstone.Selected)
+                    if(tombstone != null && !tombstone.Selected)
                     {
                         hitInfo.collider.gameObject.GetComponent<Tombstone>().Select();
                         tombstone.Effect(this);
