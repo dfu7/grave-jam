@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,9 @@ public class OptionsManager : MonoBehaviour
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private GameObject mainPanel;
     [SerializeField] private GameObject optionsPanel;
-    [SerializeField] private GameObject howToPanel; 
+    [SerializeField] private GameObject howToPanel;
+    
+
     public void SetMasterVolume(float vol)
     {
         audioMixer.SetFloat("masterVol", vol); 
