@@ -15,6 +15,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
     //Getters
     public GameObject PlayerManager { get => playerManager; }
 
+    private void Awake()
+    {
+        AudioManager.instance.PlayLevelMusic();
+    }
+
     //Subscribe to a scene
     public override void OnEnable()
     {
