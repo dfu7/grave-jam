@@ -534,20 +534,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
+  - name: UI-confirm
+    clip: {fileID: 8300000, guid: 7aee9452ffd874c40b2a997d4dc412f7, type: 3}
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
-    mixerGroup: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
+    mixerGroup: {fileID: -8217488143672945685, guid: 325061a664a365b48a144c34bfc44259, type: 2}
+  - name: UI-gamestart
+    clip: {fileID: 8300000, guid: 4aea3e2b45c40284e978b907ecf60807, type: 3}
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -8217488143672945685, guid: 325061a664a365b48a144c34bfc44259, type: 2}
+  - name: UI-cancel
+    clip: {fileID: 8300000, guid: 68fde2d78f9ab9849a2eeddfbb5ef2ba, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: -8217488143672945685, guid: 325061a664a365b48a144c34bfc44259, type: 2}
+  - name: player-stunned
+    clip: {fileID: 8300000, guid: 365b08d3049136545972502dd4bc5ec7, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: -8217488143672945685, guid: 325061a664a365b48a144c34bfc44259, type: 2}
+  - name: gamestart
+    clip: {fileID: 8300000, guid: 9a62c965f3e2cdd4fa21e0901478ca59, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: -8217488143672945685, guid: 325061a664a365b48a144c34bfc44259, type: 2}
+  - name: gamefinish
+    clip: {fileID: 8300000, guid: eef6803168f2dc04e9eb6e07f930304e, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+    mixerGroup: {fileID: -8217488143672945685, guid: 325061a664a365b48a144c34bfc44259, type: 2}
 --- !u!114 &172325136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,6 +852,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 172325135}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: UI-cancel
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &378753222
@@ -1319,6 +1359,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 172325135}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: UI-cancel
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &635069926
@@ -2252,6 +2304,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 172325135}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: UI-confirm
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1155492859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2493,6 +2557,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 172325135}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: UI-confirm
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1306073905
