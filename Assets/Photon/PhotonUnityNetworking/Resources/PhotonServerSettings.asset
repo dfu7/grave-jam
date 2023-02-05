@@ -19,7 +19,7 @@ MonoBehaviour:
     AppIdVoice: 
     AppVersion: 
     UseNameServer: 1
-    FixedRegion: 
+    FixedRegion: us
     Server: 
     Port: 0
     ProxyServer: 
@@ -40,6 +40,9 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RPC_GainCoin
+  - RPC_Deselect
+  - RPC_RemoveTombstone
+  - RPC_Select
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0

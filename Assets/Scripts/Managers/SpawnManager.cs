@@ -43,18 +43,22 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     {
         if (!ObjectsSet && playerObjects != null && playerObjects.Length == 2)
         {
-            if (view.ViewID % PhotonNetwork.MAX_VIEW_IDS == playerObjects[0].gameObject.GetPhotonView().ViewID % PhotonNetwork.MAX_VIEW_IDS)
+            if (playerObjects[0].gameObject.name == "playa1")
             {
-                //found "my" player as the master
+                //found "playa1" player as the master
                 if (PhotonNetwork.IsMasterClient)
                 {
                     MasterObject = playerObjects[0];
                     PlayerObject = playerObjects[1];
+                    Instance.MasterObject = playerObjects[0];
+                    Instance.PlayerObject = playerObjects[1];
                 }
                 else
                 {
                     MasterObject = playerObjects[1];
                     PlayerObject = playerObjects[0];
+                    Instance.MasterObject = playerObjects[1];
+                    Instance.PlayerObject = playerObjects[0];
                 }
             }
             else
@@ -64,11 +68,15 @@ public class SpawnManager : MonoBehaviourPunCallbacks
                 {
                     MasterObject = playerObjects[1];
                     PlayerObject = playerObjects[0];
+                    Instance.MasterObject = playerObjects[1];
+                    Instance.PlayerObject = playerObjects[0];
                 }
                 else
                 {
                     MasterObject = playerObjects[0];
                     PlayerObject = playerObjects[1];
+                    Instance.MasterObject = playerObjects[0];
+                    Instance.PlayerObject = playerObjects[1];
                 }
             }
             BothIn();

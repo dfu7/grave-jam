@@ -39,7 +39,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks//, IPunObservable
         bool Master = PhotonNetwork.IsMasterClient;
         if(Master)
         {
-            GameObject InstantiatedPlayer = SpawnManager.Instance.OnlineSpawn(Master, PlayerPrefab);
+            GameObject InstantiatedPlayer = SpawnManager.Instance.OnlineSpawn(Master, MasterPrefab);
             InstantiatedPlayer.GetComponent<PlayerController>().canMove = false;
             //Debug.LogError("Spawned in CreateController at " + InstantiatedPlayer.transform.position);
         }
