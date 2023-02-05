@@ -8,7 +8,13 @@ public class MainMenu : MonoBehaviourPunCallbacks
     //this is the script that handles the buttons in the main menu
 
     [SerializeField] private string ConnectToServer;
+    [SerializeField] private NewAudioManager newAudioManager;
     private bool OneFrame = false;
+
+    private void Start()
+    {
+        //AudioManager.instance.PlayMenuMusic();
+    }
 
     private void Update()
     {
@@ -29,6 +35,13 @@ public class MainMenu : MonoBehaviourPunCallbacks
     //Enter the Lobby
     public void OnClickOnlineMultiplayer()
     {
+        newAudioManager.PlayButtonConfirm();
+        StartCoroutine(LoadPhotonLevel());
+    }
+
+    public IEnumerator LoadPhotonLevel()
+    {
+        yield return new WaitForSeconds(0.5f);
         PhotonNetwork.LoadLevel(ConnectToServer);
     }
 
