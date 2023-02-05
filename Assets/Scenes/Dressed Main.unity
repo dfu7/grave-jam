@@ -60909,6 +60909,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 552336281}
     m_Modifications:
+    - target: {fileID: 4054708543112463272, guid: dd49632562bb73144a8d39fd70e5403f, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054708543112463272, guid: dd49632562bb73144a8d39fd70e5403f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 4054708543112463274, guid: dd49632562bb73144a8d39fd70e5403f, type: 3}
       propertyPath: m_Name
       value: LoadingScreen
