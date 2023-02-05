@@ -75864,7 +75864,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5159507455661669599, guid: 5296cd3f3d75e1646a6a8f7b986e48df, type: 3}
       propertyPath: GameSceneName
-      value: Copy Main
+      value: Dressed Main
       objectReference: {fileID: 0}
     - target: {fileID: 1518733656321450506, guid: 5296cd3f3d75e1646a6a8f7b986e48df, type: 3}
       propertyPath: m_Name

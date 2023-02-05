@@ -4093,7 +4093,7 @@ PrefabInstance:
       objectReference: {fileID: 747403300}
     - target: {fileID: 8721911034481410179, guid: d34f80b26f1acd249aa1c47c5accc8ef, type: 3}
       propertyPath: GameScene
-      value: Copy Main
+      value: Dressed Main
       objectReference: {fileID: 0}
     - target: {fileID: 8721911034481410179, guid: d34f80b26f1acd249aa1c47c5accc8ef, type: 3}
       propertyPath: RoomPanel
