@@ -10,6 +10,7 @@ public class NewAudioManager : MonoBehaviour
     [SerializeField] private AudioClip ButtonCancel;
     [SerializeField] private AudioClip ScrollSound;
     [SerializeField] private AudioClip StartGame;
+    [SerializeField] private AudioClip StartCountdown;
 
     public float TimeToWait = 0.55f;
 
@@ -48,6 +49,12 @@ public class NewAudioManager : MonoBehaviour
     public void PlayButtonStartGame()
     {
         audioSourceSFX.clip = StartGame;
+        audioSourceSFX.Play();
+    }
+
+    public void PlayStartCountdown()
+    {
+        audioSourceSFX.clip = StartCountdown;
         audioSourceSFX.Play();
     }
 }
