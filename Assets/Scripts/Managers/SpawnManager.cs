@@ -125,10 +125,10 @@ public class SpawnManager : MonoBehaviourPunCallbacks
         newAudioManager.PlayStartCountdown();
         Debug.Log("loading screen deactivated");
         //yield return new WaitForSeconds(1);
-        //Countdown.SetActive(true);
+        Countdown.SetActive(true);
         //Debug.Log("3");
         yield return new WaitForSeconds(1);
-        countdownNum.text = "REady";
+        countdownNum.text = "Ready";
         Debug.Log("2");
         yield return new WaitForSeconds(1);
         countdownNum.text = "Set";
