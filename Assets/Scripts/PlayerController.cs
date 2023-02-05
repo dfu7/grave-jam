@@ -7,6 +7,7 @@ using Photon.Realtime;
 using Photon.Pun;
 using UnityEngine.InputSystem.Interactions;
 using static UnityEngine.UI.Image;
+using System.Security.Cryptography.X509Certificates;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     private bool pulling = false;
     private bool checking = false;
     private bool response = false;
+    private bool waited = false;
+    private bool EffectReady = true;
 
     public int Score;
 
@@ -80,7 +83,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
             return false;
     }
 
-
     public IEnumerator ContinueAnimation()
     {
         Debug.Log("animation continued");
@@ -102,15 +104,15 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (pulling)
+        /*if (pulling)
         {
             tombstoneHeldTime += Time.deltaTime;
         }
         
-        if ( tombstoneHeldTime >= 3 /*animation length*/ )
+        if ( tombstoneHeldTime >= 3 /*animation length )
         {
             pulling = false;
-        }
+        }*/
     }
 
     private void FixedUpdate()
@@ -131,11 +133,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     tombstone = hitInfo.collider.gameObject.GetComponent<Tombstone>();
                     if(tombstone != null && !tombstone.Selected)
                     {
+                        Debug.Log("TOMBSTONE GOOD");
                         tombstone.Select(); // set tombstone bool to being used
                         pulling = true;
                         canMove = false;
                         Debug.Log("canMove:" + canMove);
                         animator.SetBool("pulling", pulling);
+                        animator.SetBool("good", (tombstone is GoodTombstone) ? true : false);
+                        StartCoroutine(WaitASec());
                     }
                 }
                 checking = false;
@@ -155,41 +160,45 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 rb.angularVelocity = Vector3.zero;
             }
 
-            //do next animation if pulling (also changed pull_playa1/playa2 to just pull_playa)
-            if(!tombstone && pulling)
+            //Reset the player canMove
+            if(pulling && waited)
             {
-                if(!isPlaying(animator, "pull_playa"))
+                if(EffectReady)
                 {
-                    string state = (tombstone is GoodTombstone) ? "good" : "bad";
-                    tombstoneChoiceState = (tombstone is GoodTombstone) ? "happy_playa" : "stunned_playa";
-                    animator.SetBool(state, true);
-                    animator.SetBool("pulling", false);
-                    pulling = false;
-                    response = true;
-                    tombstone = null;
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("happy_playa") && EffectReady)
+                    {
+                        tombstone.Effect(this);
+                        EffectReady = false;
+                    }
+                    else if (animator.GetCurrentAnimatorStateInfo(0).IsName("stun_playa") && EffectReady)
+                    {
+                        tombstone.Effect(this);
+                        EffectReady = false;
+                    }
                 }
-            }
 
-            // checking when to end player stuckedness after happy animation is over
-            if(response && tombstoneChoiceState.Equals("happy_playa"))
-            {
-                if (!isPlaying(animator, "happy_playa"))
+                if(animator.GetCurrentAnimatorStateInfo(0).IsName("idel_playa"))
                 {
-                    tombstoneChoiceState = "";
-                    animator.SetBool("good", false);
+                    Debug.LogError("I THINK ITS IDEL");
                     canMove = true;
-                    response = false;
+                    pulling = false;
+                    animator.SetBool("pulling", false); 
+                    animator.SetBool("stunover", false);
+                    EffectReady = true;
+                    waited = false;
                 }
             }
-
+            else
+            {
+                Debug.LogWarning("pulling is " + pulling + " waited is " + waited);
+            }
         }
-        else
-        {
-            //ED: This seems needless
-            animator.SetBool("moving", false); // movement stops
-            rb.angularVelocity = Vector3.zero;
-        }
+    }
 
+    public IEnumerator WaitASec()
+    {
+        yield return new WaitForSeconds(1f);
+        waited = true;
     }
 
     public void GainCoin()
@@ -206,7 +215,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         canMove = false;
         yield return new WaitForSeconds(SecondsOfStun);
-        canMove = true;
+        animator.SetBool("stunover", true);
     }
 
     [PunRPC]
