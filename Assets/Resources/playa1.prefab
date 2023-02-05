@@ -349,7 +349,6 @@ GameObject:
   - component: {fileID: 2671439354169494772}
   - component: {fileID: -8472636869815029700}
   - component: {fileID: 2576979538616691761}
-  - component: {fileID: 6910838017387271938}
   m_Layer: 0
   m_Name: playa1
   m_TagString: Player
@@ -567,26 +566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724f225aa21acfe459a5da51c56db67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &6910838017387271938
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2566355894869523560}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 32f18d0344b922b4089f30e5906e2e1e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3417205915932164364
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +952,7 @@ Animator:
   m_GameObject: {fileID: 5562784189822263394}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dd1c5d987efaf4d4c836ac713ce1e362, type: 2}
+  m_Controller: {fileID: 9100000, guid: 32f18d0344b922b4089f30e5906e2e1e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
