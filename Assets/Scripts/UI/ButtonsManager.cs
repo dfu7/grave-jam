@@ -42,4 +42,14 @@ public class ButtonsManager : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         ReduceButton();
     }
 
+    IEnumerator WaitOneFrame()
+    {
+        yield return 0; 
+    }
+    public void OnDisable()
+    {
+        StartCoroutine(WaitOneFrame());
+        ReduceButton();
+        StartCoroutine(WaitOneFrame()); 
+    }
 }

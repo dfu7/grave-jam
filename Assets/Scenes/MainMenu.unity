@@ -6649,6 +6649,18 @@ PrefabInstance:
       propertyPath: m_text
       value: HOW TO PLAY
       objectReference: {fileID: 0}
+    - target: {fileID: 1591157239401701881, guid: 2e814ee49754bc9428dc253d5623f812, type: 3}
+      propertyPath: m_fontSize
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591157239401701881, guid: 2e814ee49754bc9428dc253d5623f812, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591157239401701881, guid: 2e814ee49754bc9428dc253d5623f812, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 45
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e814ee49754bc9428dc253d5623f812, type: 3}
 --- !u!1 &387684474 stripped
@@ -53502,12 +53514,12 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 50
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
-  m_ChildScaleWidth: 1
-  m_ChildScaleHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
 --- !u!1001 &1568154440
 PrefabInstance:
