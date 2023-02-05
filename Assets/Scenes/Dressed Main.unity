@@ -60579,6 +60579,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7603558112728220443, guid: 56a01b6ceeadabd4c85bf40f06c5a142, type: 3}
+      propertyPath: badTombstone
+      value: 
+      objectReference: {fileID: 5123362099775377497, guid: 22d2b07e9b155d44586846872a58e5ea, type: 3}
+    - target: {fileID: 7603558112728220443, guid: 56a01b6ceeadabd4c85bf40f06c5a142, type: 3}
+      propertyPath: goodTombstone
+      value: 
+      objectReference: {fileID: 5123362099775377497, guid: d5fe506e4de71b6489089bf6150ae6e1, type: 3}
+    - target: {fileID: 7603558112728220443, guid: 56a01b6ceeadabd4c85bf40f06c5a142, type: 3}
       propertyPath: badTombstoneName
       value: BadTombstone
       objectReference: {fileID: 0}
