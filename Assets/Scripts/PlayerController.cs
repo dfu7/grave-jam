@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     tombstone = hitInfo.collider.gameObject.GetComponent<Tombstone>();
                     if(tombstone != null && !tombstone.Selected)
                     {
+                        AudioManager.instance.QuietLevelMusic();
                         newAudioManager.PlayGrabGrave();
                         newAudioManager.PlayGraveRising();
                         TSanimator = tombstone.GetComponentInChildren<Animator>();
@@ -167,6 +168,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     animator.SetBool("stunover", false);
                     EffectReady = true;
                     waited = false;
+                    AudioManager.instance.RaiseLevelMusic();
                 }
             }
             else

@@ -10,9 +10,6 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     public AudioSource audioSourceSFX;
     public AudioSource longAudioSourceSFX;
 
-    public AudioSource otherAudioSourceSFX;
-    public AudioSource otherLongAudioSourceSFX;
-
     [SerializeField] private AudioClip ButtonConfirm;
     [SerializeField] private AudioClip ButtonCancel;
     [SerializeField] private AudioClip ScrollSound;
@@ -60,14 +57,6 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     {
         audioSourceSFX.clip = StartGame;
         audioSourceSFX.Play();
-        view.RPC("RPC_PlayButtonStartGame", RpcTarget.Others);
-    }
-
-    [PunRPC]
-    public void RPC_PlayButtonStartGame()
-    {
-        otherAudioSourceSFX.clip = StartGame;
-        otherAudioSourceSFX.Play();
     }
 
     public void PlayStartCountdown()
@@ -85,87 +74,42 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     {
         audioSourceSFX.clip = StartMoving;
         audioSourceSFX.Play();
-        //view.RPC("RPC_PlayStartMoving", RpcTarget.Others);
     }
 
-    [PunRPC]
-    public void RPC_PlayStartMoving()
-    {
-        otherAudioSourceSFX.clip = StartMoving;
-        otherAudioSourceSFX.Play();
-    }
     public void PlayGrabGrave()
     {
         audioSourceSFX.clip = GraveRising;
         audioSourceSFX.Play();
-        //view.RPC("RPC_PlayGrabGrave", RpcTarget.Others);
-    }
-
-    public void RPC_PlayGrabGrave()
-    {
-        otherAudioSourceSFX.clip = GraveRising;
-        otherAudioSourceSFX.Play();
     }
 
     public void PlayGraveRising()
     {
         longAudioSourceSFX.clip = GraveRising;
         longAudioSourceSFX.Play();
-        //view.RPC("RPC_PlayGraveRising", RpcTarget.Others);
-    }
-
-    [PunRPC]
-    public void RPC_PlayGraveRising()
-    {
-        otherLongAudioSourceSFX.clip = GraveRising;
-        otherLongAudioSourceSFX.Play();
     }
 
     public void PlayCoin()
     {
-        audioSourceSFX.clip = Coin;
-        audioSourceSFX.Play();
-        //view.RPC("RPC_PlayCoin", RpcTarget.Others);
-    }
-
-    [PunRPC]
-    public void RPC_PlayCoin()
-    {
-        otherAudioSourceSFX.clip = Coin;
-        otherAudioSourceSFX.Play();
+        //audioSourceSFX.clip = Coin;
+        //audioSourceSFX.Play();
+        audioSourceSFX.PlayOneShot(Coin);
     }
 
     public void PlayGhost()
     {
-        audioSourceSFX.clip = Ghost;
-        audioSourceSFX.Play();
-        //view.RPC("RPC_PlayGhost", RpcTarget.Others);
-    }
-
-    [PunRPC]
-    public void RPC_PlayGhost()
-    {
-        otherAudioSourceSFX.clip = Ghost;
-        otherAudioSourceSFX.Play();
+        //audioSourceSFX.clip = Ghost;
+        //audioSourceSFX.Play();
+        audioSourceSFX.PlayOneShot(Ghost);
     }
 
     public void PlayStun()
     {
         longAudioSourceSFX.clip = Stun;
         longAudioSourceSFX.Play();
-        //view.RPC("RPC_PlayStun", RpcTarget.Others);
     }
 
     public void StopStun()
     {
         longAudioSourceSFX.Stop();
-        //view.RPC("RPC_PlayStun", RpcTarget.Others);
-    }
-
-    [PunRPC]
-    public void RPC_PlayStun()
-    {
-        otherLongAudioSourceSFX.clip = Stun;
-        otherLongAudioSourceSFX.Play();
     }
 }
