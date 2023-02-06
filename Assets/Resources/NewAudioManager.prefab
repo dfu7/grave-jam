@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2198006342000421762}
   - component: {fileID: 3079603704450116632}
   - component: {fileID: 4763480465208976624}
+  - component: {fileID: 1546608921}
   m_Layer: 0
   m_Name: NewAudioManager
   m_TagString: Untagged
@@ -251,6 +252,7 @@ MonoBehaviour:
   StartCountdown: {fileID: 8300000, guid: ffd29b28e104cbc4cb54b67df5d2de00, type: 3}
   EndWhistle: {fileID: 8300000, guid: eef6803168f2dc04e9eb6e07f930304e, type: 3}
   StartMoving: {fileID: 8300000, guid: bb5f8c46e45bda2408aef0805b7f1dc7, type: 3}
+  GrabGrave: {fileID: 8300000, guid: e2ef9d5831d28754d9a24259a74f358e, type: 3}
   GraveRising: {fileID: 8300000, guid: 7ed4508b656b6ea4ea3ca96163991939, type: 3}
   Coin: {fileID: 8300000, guid: 2ddb78b20bb2b814b9425c79347eb123, type: 3}
   Ghost: {fileID: 8300000, guid: b8393e78101b92f47905cd26d516ffe9, type: 3}
@@ -449,3 +451,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1546608921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202782862493777102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
