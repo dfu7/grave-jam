@@ -192,6 +192,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public IEnumerator WaitForCoin(GameObject coin)
     {
+        newAudioManager.PlayButtonConfirm();
         newAudioManager.PlayCoin();
         yield return new WaitForSeconds(1.5f);
         PhotonNetwork.Destroy(coin);
