@@ -20,6 +20,7 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     [SerializeField] private AudioClip StartCountdown;
     [SerializeField] private AudioClip EndWhistle;
     [SerializeField] private AudioClip StartMoving;
+    [SerializeField] private AudioClip GrabGrave;
     [SerializeField] private AudioClip GraveRising;
     [SerializeField] private AudioClip Coin;
     [SerializeField] private AudioClip Ghost;
@@ -93,19 +94,31 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
         otherAudioSourceSFX.clip = StartMoving;
         otherAudioSourceSFX.Play();
     }
-
-    public void PlayGraveRising()
+    public void PlayGrabGrave()
     {
         audioSourceSFX.clip = GraveRising;
         audioSourceSFX.Play();
+        view.RPC("RPC_PlayGrabGrave", RpcTarget.Others);
+    }
+
+    public void RPC_PlayGrabGrave()
+    {
+        otherAudioSourceSFX.clip = GraveRising;
+        otherAudioSourceSFX.Play();
+    }
+
+    public void PlayGraveRising()
+    {
+        longAudioSourceSFX.clip = GraveRising;
+        longAudioSourceSFX.Play();
         view.RPC("RPC_PlayGraveRising", RpcTarget.Others);
     }
 
     [PunRPC]
     public void RPC_PlayGraveRising()
     {
-        otherAudioSourceSFX.clip = GraveRising;
-        otherAudioSourceSFX.Play();
+        otherLongAudioSourceSFX.clip = GraveRising;
+        otherLongAudioSourceSFX.Play();
     }
 
     public void PlayCoin()
