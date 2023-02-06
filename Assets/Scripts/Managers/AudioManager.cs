@@ -1,7 +1,7 @@
 using UnityEngine.Audio;
 using System; 
 using UnityEngine;
-
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -52,33 +52,27 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = LevelClip;
         audioSource.Play();
     }
-    
-    public void Play(string name)
+
+    public void QuietLevelMusic()
     {
-        /*Debug.Log("Play is getting called");
-        Sound s = Array.Find(sounds, sound => sound.name == name); 
-        if(s == null)
-        {
-            return; 
-        }
-        if (!s.source.isPlaying)
-        {
-            audioSource.clip = s.source.clip;
-            audioSource.Play();
-        }*/
+        StartCoroutine(Fade(1.0f, 0.25f));
     }
 
-    /*public void StopPlaying(string name)
+    public IEnumerator Fade(float duration, float targetVolume)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        float currentTime = 0;
+        float start = audioSource.volume;
+        while (currentTime < duration)
         {
-            return;
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
         }
-        if (s.source.isPlaying)
-        {
-            s.source.Stop();
-        }
-    }*/
+        yield break;
+    }
 
+    public void RaiseLevelMusic()
+    {
+        StartCoroutine(Fade(1.0f, 1.0f));
+    }
 }
