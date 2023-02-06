@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds: []
   MenuClip: {fileID: 8300000, guid: 17516300ea2323c46b2a8933345dba14, type: 3}
-  LevelClip: {fileID: 0}
+  LevelClip: {fileID: 8300000, guid: ff35b5a526a1bbe4689af2267c785aad, type: 3}
   audioSource: {fileID: 3177363944320099999}
 --- !u!82 &3177363944320099999
 AudioSource:
