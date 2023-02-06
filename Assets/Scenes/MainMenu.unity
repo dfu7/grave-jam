@@ -1115,10 +1115,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -17.776
       objectReference: {fileID: 0}
+    - target: {fileID: -5568592434201407133, guid: a87f1b97627704d4e90d5601419667d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c74d1657bbb3aa4493045bd2559efdc, type: 2}
+    - target: {fileID: -663215638882914317, guid: a87f1b97627704d4e90d5601419667d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c74d1657bbb3aa4493045bd2559efdc, type: 2}
     - target: {fileID: 919132149155446097, guid: a87f1b97627704d4e90d5601419667d5, type: 3}
       propertyPath: m_Name
       value: Gravedigger
       objectReference: {fileID: 0}
+    - target: {fileID: 6164996480583612547, guid: a87f1b97627704d4e90d5601419667d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c74d1657bbb3aa4493045bd2559efdc, type: 2}
+    - target: {fileID: 8449996119470504636, guid: a87f1b97627704d4e90d5601419667d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c74d1657bbb3aa4493045bd2559efdc, type: 2}
+    - target: {fileID: 8666231656095187744, guid: a87f1b97627704d4e90d5601419667d5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c74d1657bbb3aa4493045bd2559efdc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a87f1b97627704d4e90d5601419667d5, type: 3}
 --- !u!1 &459907673
@@ -3206,10 +3226,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.102
       objectReference: {fileID: 0}
+    - target: {fileID: -5568592434201407133, guid: 46913ceca64efb4479290726b760d65a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6102fb53a7a3fc847970980eededc359, type: 2}
+    - target: {fileID: -663215638882914317, guid: 46913ceca64efb4479290726b760d65a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6102fb53a7a3fc847970980eededc359, type: 2}
     - target: {fileID: 919132149155446097, guid: 46913ceca64efb4479290726b760d65a, type: 3}
       propertyPath: m_Name
       value: GravediggerTall
       objectReference: {fileID: 0}
+    - target: {fileID: 6164996480583612547, guid: 46913ceca64efb4479290726b760d65a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6102fb53a7a3fc847970980eededc359, type: 2}
+    - target: {fileID: 8449996119470504636, guid: 46913ceca64efb4479290726b760d65a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6102fb53a7a3fc847970980eededc359, type: 2}
+    - target: {fileID: 8666231656095187744, guid: 46913ceca64efb4479290726b760d65a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6102fb53a7a3fc847970980eededc359, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46913ceca64efb4479290726b760d65a, type: 3}
 --- !u!1 &1417866193
@@ -5113,5 +5153,13 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5681281278866880898, guid: f44279aac69dd6947a0ab812a6f88ddb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5f677903be141d34c99d0f3394562da8, type: 2}
+    - target: {fileID: 8203223900528034831, guid: f44279aac69dd6947a0ab812a6f88ddb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e5ebc939d52ac5443aeb1f8f14f39c85, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44279aac69dd6947a0ab812a6f88ddb, type: 3}
