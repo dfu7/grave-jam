@@ -17,13 +17,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public bool canMove = true;
 
     private float inRangeDistance;
-    private float tombstoneHeldTime = 0;
     private int pulls = 0;
     private bool pulling = false;
     private bool checking = false;
-    private bool response = false;
     private bool waited = false;
     private bool EffectReady = true;
+    private bool moving = false;
 
     public int Score;
 
@@ -31,8 +30,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private Animator animator;
     private Animator TSanimator;
-    private string tombstoneChoiceState;
     Tombstone tombstone;
+
+    private NewAudioManager newAudioManager;
 
     PhotonView view;
 
@@ -40,10 +40,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         rb = GetComponent<Rigidbody>();
         view = GetComponent<PhotonView>();
-
         inRangeDistance = GetComponent<CapsuleCollider>().bounds.size.z / 2 + 0.2f;
-
         animator = GetComponentInChildren<Animator>();
+        newAudioManager = FindObjectOfType<NewAudioManager>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -60,27 +59,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 checking = true; // raycast check (automatically sets checking to false) raycasts are stupid
             }
-            /*else if (pulls == 3)
-            {
-                animator.speed = 1;
-                tombstone.Effect(this);
-                pulls = 0;
-            }
-            else
-            {
-                ContinueAnimation();
-                // check that its not playing
-            }*/
         }
-    }
-
-    bool isPlaying(Animator anim, string stateName)
-    {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName(stateName) &&
-                anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-            return true;
-        else
-            return false;
     }
 
     public IEnumerator ContinueAnimation()
@@ -102,19 +81,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
         pulls++;
     }
 
-    private void Update()
-    {
-        /*if (pulling)
-        {
-            tombstoneHeldTime += Time.deltaTime;
-        }
-        
-        if ( tombstoneHeldTime >= 3 /*animation length )
-        {
-            pulling = false;
-        }*/
-    }
-
     private void FixedUpdate()
     {
 
@@ -133,6 +99,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     tombstone = hitInfo.collider.gameObject.GetComponent<Tombstone>();
                     if(tombstone != null && !tombstone.Selected)
                     {
+                        newAudioManager.PlayGrabGrave();
+                        newAudioManager.PlayGraveRising();
                         TSanimator = tombstone.GetComponentInChildren<Animator>();
                         Debug.Log("TOMBSTONE GOOD");
                         tombstone.Select(); // set tombstone bool to being used
@@ -149,16 +117,25 @@ public class PlayerController : MonoBehaviourPunCallbacks
             }
 
             //general movement
-            if (movement != Vector3.zero && canMove)
+
+            if (!moving)
             {
-                animator.SetBool("moving", true); // movement starts
+                moving = true;
+                newAudioManager.PlayStartMoving();
+            }
+
+            if (moving && movement != Vector3.zero && canMove)
+            {
+                moving = true;
+                animator.SetBool("moving", moving); // movement starts
 
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(movement, Vector3.up), rotationSpeed * Time.deltaTime);
                 transform.Translate(movement * speed * Time.deltaTime, Space.World);
             }
             else
             {
-                animator.SetBool("moving", false); //movement stops
+                moving = false;
+                animator.SetBool("moving", moving); //movement stops
                 rb.angularVelocity = Vector3.zero;
             }
 
@@ -205,6 +182,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public void GainCoin(GameObject coin)
     {
+        newAudioManager.PlayCoin();
         view.RPC("RPC_GainCoin", RpcTarget.All);
         WaitForCoin(coin);
     }
@@ -217,12 +195,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public void GetStunned(GameObject ghost)
     {
+        newAudioManager.PlayGhost();
         StartCoroutine(Stun(ghost));
     }
 
     public IEnumerator Stun(GameObject ghost)
     {
         canMove = false;
+        newAudioManager.PlayStun();
         yield return new WaitForSeconds(SecondsOfStun);
         animator.SetBool("stunover", true);
         PhotonNetwork.Destroy(ghost);
