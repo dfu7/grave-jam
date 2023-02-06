@@ -122,9 +122,9 @@ public class SpawnManager : MonoBehaviourPunCallbacks
     public IEnumerator StartSequence()
     {
         LoadingScreen.SetActive(false);
-        newAudioManager.PlayStartCountdown();
         Debug.Log("loading screen deactivated");
         yield return new WaitForSeconds(1);
+        newAudioManager.PlayStartCountdown();
         Countdown.SetActive(true);
         Debug.Log("3");
         yield return new WaitForSeconds(1);
