@@ -148,7 +148,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 {
                     if (animator.GetCurrentAnimatorStateInfo(0).IsName("happy_playa") && EffectReady)
                     {
-                        newAudioManager.PlayCoin();
                         tombstone.Effect(this);
                         EffectReady = false;
                     }
@@ -191,19 +190,20 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public IEnumerator WaitForCoin(GameObject coin)
     {
+        newAudioManager.PlayCoin();
         yield return new WaitForSeconds(1.5f);
         PhotonNetwork.Destroy(coin);
     }
 
     public void GetStunned(GameObject ghost)
     {
-        newAudioManager.PlayGhost();
         StartCoroutine(Stun(ghost));
     }
 
     public IEnumerator Stun(GameObject ghost)
     {
         canMove = false;
+        newAudioManager.PlayGhost();
         newAudioManager.PlayStun();
         regUI.SetActive(false);
         stunUI.SetActive(true);
