@@ -148,6 +148,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 {
                     if (animator.GetCurrentAnimatorStateInfo(0).IsName("happy_playa") && EffectReady)
                     {
+                        newAudioManager.PlayCoin();
                         tombstone.Effect(this);
                         EffectReady = false;
                     }
@@ -184,7 +185,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public void GainCoin(GameObject coin)
     {
-        newAudioManager.PlayCoin();
         view.RPC("RPC_GainCoin", RpcTarget.All);
         WaitForCoin(coin);
     }
@@ -208,9 +208,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
         regUI.SetActive(false);
         stunUI.SetActive(true);
         yield return new WaitForSeconds(SecondsOfStun);
+
         regUI.SetActive(true);
         stunUI.SetActive(false);
         animator.SetBool("stunover", true);
+        newAudioManager.StopStun();
         PhotonNetwork.Destroy(ghost);
     }
 
