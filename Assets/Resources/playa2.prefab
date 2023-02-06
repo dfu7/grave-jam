@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   rotationSpeed: 720
-  SecondsOfStun: 2
+  SecondsOfStun: 2.2
   canMove: 1
   Score: 0
   regUI: {fileID: 5186005660633276156}
