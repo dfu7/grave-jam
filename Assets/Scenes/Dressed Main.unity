@@ -45526,8 +45526,8 @@ MonoBehaviour:
   LossScreen: {fileID: 1757380456}
   BlueWin: {fileID: 21300000, guid: 50efe56edd6fb344ebfb40597b3fdf9d, type: 3}
   GreenWin: {fileID: 21300000, guid: c0da3ecdf20e8544aa89bf31b07d9c6c, type: 3}
-  BlueLoss: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  GreenLoss: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  BlueLoss: {fileID: 21300000, guid: 1c2207cfce1c7f941a43b9e4d5e13fde, type: 3}
+  GreenLoss: {fileID: 21300000, guid: 903a9b315944f4a4c8b0548f3b94fb0b, type: 3}
 --- !u!4 &1750472831
 Transform:
   m_ObjectHideFlags: 0
