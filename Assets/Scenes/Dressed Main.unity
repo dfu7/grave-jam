@@ -45528,7 +45528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MasterObject: {fileID: 0}
   PlayerObject: {fileID: 0}
-  newAudioManager: {fileID: 0}
+  newAudioManager: {fileID: 600742469}
   MainMenuName: MainMenu
   VictoryScreen: {fileID: 1042352062}
   LossScreen: {fileID: 1757380456}
