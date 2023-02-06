@@ -85,7 +85,7 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     {
         audioSourceSFX.clip = StartMoving;
         audioSourceSFX.Play();
-        view.RPC("RPC_PlayStartMoving", RpcTarget.Others);
+        //view.RPC("RPC_PlayStartMoving", RpcTarget.Others);
     }
 
     [PunRPC]
@@ -98,7 +98,7 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     {
         audioSourceSFX.clip = GraveRising;
         audioSourceSFX.Play();
-        view.RPC("RPC_PlayGrabGrave", RpcTarget.Others);
+        //view.RPC("RPC_PlayGrabGrave", RpcTarget.Others);
     }
 
     public void RPC_PlayGrabGrave()
@@ -111,7 +111,7 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     {
         longAudioSourceSFX.clip = GraveRising;
         longAudioSourceSFX.Play();
-        view.RPC("RPC_PlayGraveRising", RpcTarget.Others);
+        //view.RPC("RPC_PlayGraveRising", RpcTarget.Others);
     }
 
     [PunRPC]
@@ -125,7 +125,7 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     {
         audioSourceSFX.clip = Coin;
         audioSourceSFX.Play();
-        view.RPC("RPC_PlayCoin", RpcTarget.Others);
+        //view.RPC("RPC_PlayCoin", RpcTarget.Others);
     }
 
     [PunRPC]
@@ -139,7 +139,7 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     {
         audioSourceSFX.clip = Ghost;
         audioSourceSFX.Play();
-        view.RPC("RPC_PlayGhost", RpcTarget.Others);
+        //view.RPC("RPC_PlayGhost", RpcTarget.Others);
     }
 
     [PunRPC]
@@ -153,7 +153,7 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
     {
         longAudioSourceSFX.clip = Stun;
         longAudioSourceSFX.Play();
-        view.RPC("RPC_PlayStun", RpcTarget.Others);
+        //view.RPC("RPC_PlayStun", RpcTarget.Others);
     }
 
     [PunRPC]
