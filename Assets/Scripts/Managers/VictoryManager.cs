@@ -89,18 +89,18 @@ public class VictoryManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            //Master won and I am not Master
+            //Master lost and I am Master
             if(PhotonNetwork.IsMasterClient)
             {
-                //Blue win
+                //Green loss
                 LossScreen.SetActive(true);
-                LossScreen.GetComponent<Image>().sprite = BlueWin; 
+                LossScreen.GetComponent<Image>().sprite = GreenLoss; 
             }
             else
             {
-                //Green loss
+                //Blue win
                 VictoryScreen.SetActive(true);
-                VictoryScreen.GetComponent<Image>().sprite = GreenLoss; 
+                VictoryScreen.GetComponent<Image>().sprite = BlueWin; 
             }
         }
         EndGameCalled = true;
