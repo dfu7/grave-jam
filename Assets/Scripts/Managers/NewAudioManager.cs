@@ -1,11 +1,17 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class NewAudioManager : MonoBehaviour
+public class NewAudioManager : MonoBehaviourPunCallbacks
 {
     public AudioSource audioSourceSFX;
     public AudioSource longAudioSourceSFX;
+
+    public AudioSource otherAudioSourceSFX;
+    public AudioSource otherLongAudioSourceSFX;
 
     [SerializeField] private AudioClip ButtonConfirm;
     [SerializeField] private AudioClip ButtonCancel;
@@ -23,16 +29,12 @@ public class NewAudioManager : MonoBehaviour
 
     [HideInInspector] public bool Wait;
 
+    private PhotonView view;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        view = GetComponent<PhotonView>();
     }
 
     public void PlayButtonConfirm()
@@ -57,6 +59,14 @@ public class NewAudioManager : MonoBehaviour
     {
         audioSourceSFX.clip = StartGame;
         audioSourceSFX.Play();
+        view.RPC("RPC_PlayButtonStartGame", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void RPC_PlayButtonStartGame()
+    {
+        otherAudioSourceSFX.clip = StartGame;
+        otherAudioSourceSFX.Play();
     }
 
     public void PlayStartCountdown()
@@ -74,29 +84,69 @@ public class NewAudioManager : MonoBehaviour
     {
         audioSourceSFX.clip = StartMoving;
         audioSourceSFX.Play();
+        view.RPC("RPC_PlayStartMoving", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void RPC_PlayStartMoving()
+    {
+        otherAudioSourceSFX.clip = StartMoving;
+        otherAudioSourceSFX.Play();
     }
 
     public void PlayGraveRising()
     {
         audioSourceSFX.clip = GraveRising;
         audioSourceSFX.Play();
+        view.RPC("RPC_PlayGraveRising", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void RPC_PlayGraveRising()
+    {
+        otherAudioSourceSFX.clip = GraveRising;
+        otherAudioSourceSFX.Play();
     }
 
     public void PlayCoin()
     {
         audioSourceSFX.clip = Coin;
         audioSourceSFX.Play();
+        view.RPC("RPC_PlayCoin", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void RPC_PlayCoin()
+    {
+        otherAudioSourceSFX.clip = Coin;
+        otherAudioSourceSFX.Play();
     }
 
     public void PlayGhost()
     {
         audioSourceSFX.clip = Ghost;
         audioSourceSFX.Play();
+        view.RPC("RPC_PlayGhost", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void RPC_PlayGhost()
+    {
+        otherAudioSourceSFX.clip = Ghost;
+        otherAudioSourceSFX.Play();
     }
 
     public void PlayStun()
     {
         longAudioSourceSFX.clip = Stun;
         longAudioSourceSFX.Play();
+        view.RPC("RPC_PlayStun", RpcTarget.Others);
+    }
+
+    [PunRPC]
+    public void RPC_PlayStun()
+    {
+        otherLongAudioSourceSFX.clip = Stun;
+        otherLongAudioSourceSFX.Play();
     }
 }

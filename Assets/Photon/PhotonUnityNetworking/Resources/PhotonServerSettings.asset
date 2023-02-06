@@ -43,6 +43,12 @@ MonoBehaviour:
   - RPC_Deselect
   - RPC_RemoveTombstone
   - RPC_Select
+  - RPC_PlayButtonStartGame
+  - RPC_PlayStartMoving
+  - RPC_PlayGraveRising
+  - RPC_PlayCoin
+  - RPC_PlayGhost
+  - RPC_PlayStun
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 0
