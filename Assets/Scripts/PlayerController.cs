@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     Tombstone tombstone;
 
     private NewAudioManager newAudioManager;
+    [SerializeField] private GameObject regUI;
+    [SerializeField] private GameObject stunUI;
 
     PhotonView view;
 
@@ -203,7 +205,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         canMove = false;
         newAudioManager.PlayStun();
+        regUI.SetActive(false);
+        stunUI.SetActive(true);
         yield return new WaitForSeconds(SecondsOfStun);
+        regUI.SetActive(true);
+        stunUI.SetActive(false);
         animator.SetBool("stunover", true);
         PhotonNetwork.Destroy(ghost);
     }
