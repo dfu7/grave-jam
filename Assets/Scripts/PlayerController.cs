@@ -64,25 +64,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
     }
 
-    public IEnumerator ContinueAnimation()
-    {
-        Debug.Log("animation continued");
-
-        if (pulls == 0)
-            animator.SetBool("pulling", true);
-            yield return new WaitForSeconds((1f / 331) * 31);
-        if (pulls == 1)
-            animator.speed = 1;
-            yield return new WaitForSeconds((1f / 331) * 66);
-        if (pulls == 2)
-            animator.speed = 1;
-            yield return new WaitForSeconds((1f / 331) * 197);
-
-        Debug.Log("animation stopped");
-        animator.speed = 0;
-        pulls++;
-    }
-
     private void FixedUpdate()
     {
 
@@ -196,6 +177,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         newAudioManager.PlayCoin();
         yield return new WaitForSeconds(1.5f);
         PhotonNetwork.Destroy(coin);
+        canMove = true;
     }
 
     public void GetStunned(GameObject ghost)
@@ -217,6 +199,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         animator.SetBool("stunover", true);
         newAudioManager.StopStun();
         PhotonNetwork.Destroy(ghost);
+        canMove = true;
     }
 
     [PunRPC]
