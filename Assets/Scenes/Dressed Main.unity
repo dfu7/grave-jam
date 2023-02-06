@@ -11664,6 +11664,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2198006342000421762, guid: 1e4f6da8b5cb08344b43d9503e47c53c, type: 3}
+      propertyPath: Coin
+      value: 
+      objectReference: {fileID: 8300000, guid: ff1e7dd6c3e79ea4182f99a1d5211e27, type: 3}
     - target: {fileID: 8933676320577751005, guid: 1e4f6da8b5cb08344b43d9503e47c53c, type: 3}
       propertyPath: m_RootOrder
       value: 10

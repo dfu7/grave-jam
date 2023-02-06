@@ -156,6 +156,12 @@ public class NewAudioManager : MonoBehaviourPunCallbacks
         //view.RPC("RPC_PlayStun", RpcTarget.Others);
     }
 
+    public void StopStun()
+    {
+        longAudioSourceSFX.Stop();
+        //view.RPC("RPC_PlayStun", RpcTarget.Others);
+    }
+
     [PunRPC]
     public void RPC_PlayStun()
     {
