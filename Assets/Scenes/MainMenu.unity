@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c47084d4d37ea10449e7c5d74dfc2dce, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -208,13 +208,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 636986821}
   m_HandleRect: {fileID: 1704770018}
   m_Direction: 0
-  m_MinValue: -20
-  m_MaxValue: 80
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 201064379}
+        m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
+        m_MethodName: SetBGMVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &70686098
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,13 +312,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1081172710}
   m_HandleRect: {fileID: 2055450035}
   m_Direction: 0
-  m_MinValue: -20
-  m_MaxValue: 80
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 201064379}
+        m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
+        m_MethodName: SetMasterVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &74904927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,13 +1950,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 587723967}
   m_HandleRect: {fileID: 1953972237}
   m_Direction: 0
-  m_MinValue: -20
-  m_MaxValue: 80
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 201064379}
+        m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &809327987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,9 +3490,21 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2198006342000421762, guid: 1e4f6da8b5cb08344b43d9503e47c53c, type: 3}
+      propertyPath: Coin
+      value: 
+      objectReference: {fileID: 8300000, guid: 8dc75ace181746a4bb6671af2cef1551, type: 3}
+    - target: {fileID: 2198006342000421762, guid: 1e4f6da8b5cb08344b43d9503e47c53c, type: 3}
       propertyPath: GrabGrave
       value: 
       objectReference: {fileID: 8300000, guid: e2ef9d5831d28754d9a24259a74f358e, type: 3}
+    - target: {fileID: 3079603704450116632, guid: 1e4f6da8b5cb08344b43d9503e47c53c, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763480465208976624, guid: 1e4f6da8b5cb08344b43d9503e47c53c, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8933676320577751005, guid: 1e4f6da8b5cb08344b43d9503e47c53c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5056,6 +5104,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3177363944320099999, guid: 74a476bf940f28442810e7cd55349258, type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177363944320099999, guid: 74a476bf940f28442810e7cd55349258, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8407b8285bd356040b723fae348daf4a, type: 3}
+    - target: {fileID: 5100958845037766576, guid: 74a476bf940f28442810e7cd55349258, type: 3}
+      propertyPath: MenuClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8407b8285bd356040b723fae348daf4a, type: 3}
+    - target: {fileID: 6363157935046412992, guid: 74a476bf940f28442810e7cd55349258, type: 3}
+      propertyPath: m_Volume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363157935046412992, guid: 74a476bf940f28442810e7cd55349258, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ff35b5a526a1bbe4689af2267c785aad, type: 3}
     - target: {fileID: 7651974958546293830, guid: 74a476bf940f28442810e7cd55349258, type: 3}
       propertyPath: m_Name
       value: MusicAudioManager

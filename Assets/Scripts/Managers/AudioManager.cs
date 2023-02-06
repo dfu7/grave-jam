@@ -55,7 +55,7 @@ public class AudioManager : MonoBehaviour
 
     public void QuietLevelMusic()
     {
-        StartCoroutine(Fade(1.0f, 0.25f));
+        StartCoroutine(Fade(1.0f, 0.1f));
     }
 
     public IEnumerator Fade(float duration, float targetVolume)
@@ -73,6 +73,6 @@ public class AudioManager : MonoBehaviour
 
     public void RaiseLevelMusic()
     {
-        StartCoroutine(Fade(1.0f, 1.0f));
+        StartCoroutine(Fade(1.0f, 0.75f));
     }
 }
